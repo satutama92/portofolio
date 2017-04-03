@@ -1,0 +1,415 @@
+$radio-border: #a4d5de;
+$radio-border-active: $color-accent;
+
+%input{
+	display: block;
+	appearance: none;
+	width: 100%;
+	color: $color-accent;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	padding: 12px 6px 10px 0;
+	font-size: 1.8rem;
+  line-height: 2.4rem;
+	height: 5rem;
+	box-shadow: none;
+	border-bottom: solid 1px #787887;
+	&:disabled{
+		background: transparent;
+		~ .modal-calendar, ~ .select-chevron{
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+		@include placeholder{
+			color: $black-15 !important;
+		}
+	}
+	@include placeholder{
+		font-weight: $font-regular;
+		color: #787887;
+		opacity: 1;
+	}
+}
+
+%chevron-down{
+	@extend .fa;
+	@extend .fa-chevron-down;
+	cursor: pointer;
+	pointer-events: none;
+	margin-top: -1.9em;
+	float: right;
+	color: $black-55;
+}
+
+select.form-control, input.form-control, .select-placeholder{
+	@extend %input;
+	+ .select-chevron{
+		@extend %chevron-down;
+	}
+}
+
+.form-group{
+	position: relative;
+	margin-bottom: 3.6rem;
+
+	.modal-calendar{
+		height: 30px;
+		position: absolute;
+		right: 0;
+		top: 4rem;
+		width: 30px;
+		color: $color-accent;
+		cursor: pointer;
+		.glyphicon-calendar{
+	    pointer-events: none;
+	    font-size: 2.4rem;
+	    padding-right: 0.5rem;
+		}
+	}
+	input[type='text'], input[type='password'], input[type='number'],
+	input[type='date'], input[type='color'], input[type='email'],
+	input[type='tel'], input[type='url'], input, textarea{
+		color: $color-accent;
+		font-weight: bold;
+		@extend %input;
+		~ .glyphicon{
+			cursor: pointer;
+			pointer-events: none;
+			font-size: 2.4rem;
+			margin-top: -3.6rem;
+			padding-right: 0.5rem;
+			float: right;
+			color: $color-accent;
+		}
+	}
+
+
+	textarea{ height: auto; }
+
+	select{
+		color: $black-55;
+		@extend %input;
+		+ .select-chevron{
+			@extend %chevron-down;
+		}
+	}
+
+	> label{
+		display: inline-block;
+		margin: 0;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		font-weight: 500;
+		color: $black-75;
+	}
+
+	.btn-help{
+		cursor: pointer;
+		display: inline-block;
+		color: $color-accent;
+		&.glyphicon{
+			top: 2px;
+			margin-left: 0.5em;
+			font-size: 18px;
+		}
+		&:hover, &:hover ~.glyphicon{ color: $color-accent-dark; }
+	}
+	&:last-child{
+		margin-bottom: 2.5em;
+	}
+
+	&.has-error{
+		input, select,
+		input~.input-group-addon, select~.input-group-addon{
+			box-shadow: none;
+			background-color: rgba( $color-danger, 0.1 );
+			border-bottom-color: $color-danger;
+			color: $color-danger;
+			font-weight: $font-bold;
+			~.glyphicon{ color: $color-danger; }
+		}
+		label{
+			font-weight: normal;
+			color: $black-75;
+		}
+		select{
+			font-weight: $font-regular;
+			color: $black-55;
+		}
+		span.help-block{ color: $color-danger; }
+		.modal-calendar{ color: $color-danger; }
+	}
+
+	&.disabled {
+		opacity: 0.4;
+	}
+
+	div.help-block{
+		position: relative;
+		background: $color-accent;
+		color: $white;
+		padding: 1em;
+		&:after{
+			content: '';
+			position: absolute; top: -8px; right: 12px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 10px 10px 10px;
+			border-color: transparent transparent $color-accent transparent;
+		}
+	}
+
+	span.help-block {
+		font-size: 1.4rem;
+		margin: 0;
+		padding: 0.2rem 0;
+	}
+
+	.input-group .input-group-addon{
+		border: none;
+		background: none;
+		padding-left: 0;
+		border-radius: 0;
+		font-size: 1.8rem;
+    line-height: 2.4rem;
+		color: $black-40;
+	}
+}
+
+
+//------------------
+//	!Checkbox
+//------------------
+
+%input-hide{
+	position: absolute;
+	display: inline;
+	height: 1px;
+	width: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+}
+
+%checkbox-label{
+	padding: 0.75em 0.75em 0.85em 2.75em;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+	white-space: normal;
+	color: #005c6d;
+	border-radius: 0;
+	min-width: 0;
+	font-weight: normal;
+	border: 0.01rem solid $radio-border;
+	line-height: 1.4em;
+	@extend %button-base;
+
+	&:before, &:after{
+		border-radius: 0;
+		border-color: $color-accent;
+		margin-left: 0;
+		width: 2.5rem;
+		height: 2.5rem;
+		text-align: center;
+	}
+
+	&:before{
+		content: "";
+		display: inline-block;
+		position: absolute;
+		left: 0.75em;
+		border: 1px solid $color-accent;
+		border-radius: 0;
+		background-color: $white;
+		transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+	}
+
+	a{ color: $color-brand; }
+}
+
+%checkbox-label-active{
+	color: $color-accent;
+	font-weight: bold;
+
+	&:after{
+		content: '\e013';
+		display: inline-block;
+		position: absolute; left: 1.25rem; top: 1.25rem;
+		line-height: 2.5rem;
+		padding-left: 0.1rem;
+		font-size: 1.1rem;
+		color: $black-60;
+		@extend .glyphicon;
+	}
+
+	&:before{ border-width: 2px; }
+}
+
+%checkbox-label-disabled{
+	cursor: not-allowed;
+	opacity: 0.4;
+	&:before{ background-color: $black-5; }
+}
+
+.checkbox {
+	margin-bottom: 3.6rem;
+}
+
+/*----	!Add to classes ----*/
+input[type="checkbox"]{
+	@extend %input-hide;
+
+	&:focus + label:before{
+		outline: thin dotted;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+
+	+label{ @extend %checkbox-label; }
+	&:checked + label{ @extend %checkbox-label-active; }
+	&:disabled + label { @extend %checkbox-label-disabled; }
+}
+
+	input.facetapi-checkbox {
+	position:relative;
+	width: 1.2em;
+	height: 0.9em;
+}
+
+/*----	!Restore default checkbox (TEMP) ----*/
+label > input[type="checkbox"]{
+	clip: auto;
+	height: auto;
+	width: auto;
+	position: relative;
+}
+
+
+
+
+//------------------
+//	!Radio
+//------------------
+
+%radio-label{
+	display: table;
+	width: auto;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: -1px;
+	border: 0.01rem solid $radio-border;
+	color: #005c6d;
+	border-radius: 0;
+	min-width: 0;
+	font-weight: normal;
+	@extend %button-base;
+
+	&:hover{
+		padding-left: 16px;
+		border-left-width: 5px;
+	}
+}
+
+%radio-label-active{
+	background: $black-5;
+	border-left-color: $color-accent;
+	padding-left: 16px;
+	border-left-width: 5px;
+	font-weight: bold;
+}
+
+input[type="radio"]{
+	@extend %input-hide;
+}
+
+.btn-radio{
+	@extend %radio-label;
+	&.active{ @extend %radio-label-active; }
+	&.disabled{ cursor: not-allowed; pointer-events: none; }
+}
+
+.radio-horizontal, .radio-vertical{ margin-top: 0.5rem; }
+.modal .btn-radio{ width: 100%; text-align: left; }
+
+// Radio horizontal & vertical
+.radio-horizontal{
+	display: table;
+	width: 100%;
+
+	.btn-radio{
+		display: table-cell;
+		cursor: pointer;
+		width: auto;
+		padding: 1.2rem .8rem;
+		margin: 0;
+		color: $color-accent;
+		font-size: 1.8rem;
+		line-height: 2.4rem;
+		font-weight: normal;
+		vertical-align: middle;
+		word-break: break-all;
+		white-space: normal;
+		text-align: center;
+		border: .1rem solid $radio-border;
+
+		&.active{
+			border-left: .1rem solid $radio-border;
+			padding-left: 0.8rem;
+			border-left-width: inherit;
+			border-bottom-color: $color-accent;
+    	padding-bottom: 0.7rem;
+			border-bottom-width: 0.5rem;
+			font-weight: bold;
+			background: $black-5;
+			&:hover{ border-left-width: inherit; padding-bottom: 0.8rem; }
+		}
+
+		&:hover{
+			padding-left: 0.8rem;
+    	padding-bottom: 0.8rem;
+			border-left-width: 0.1rem;
+			border-bottom-width: 0.5rem;
+		}
+
+		&:nth-child(1):nth-last-child(1) {
+			width: 100%;
+		}
+
+		&:nth-child(1):nth-last-child(2),
+		&:nth-child(2):nth-last-child(1){
+			width: 50%;
+		}
+
+		&:nth-child(1):nth-last-child(3),
+		&:nth-child(2):nth-last-child(2),
+		&:nth-child(3):nth-last-child(1){
+			width: 33.3333%;
+		}
+
+		&:nth-child(1):nth-last-child(4),
+		&:nth-child(2):nth-last-child(3),
+		&:nth-child(3):nth-last-child(2),
+		&:nth-child(4):nth-last-child(1){
+			width: 25%;
+		}
+
+		&:nth-child(2):nth-last-child(1),
+		&:nth-child(2):nth-last-child(2),
+		&:nth-child(3):nth-last-child(1),
+		&:nth-child(2):nth-last-child(3),
+		&:nth-child(3):nth-last-child(2),
+		&:nth-child(4):nth-last-child(1){
+			border-left-color: transparent;
+		}
+
+		&:nth-child(1).active{ border-left-width: 0.1rem; }
+
+	}
+
+}

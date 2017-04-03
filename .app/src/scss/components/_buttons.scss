@@ -1,0 +1,533 @@
+//------------------
+//	!Init buttons
+//------------------
+
+.btn{
+	@extend %button-raised;
+	&-border{
+		@extend %button-border;
+	}
+	&-flat{
+		@extend %button-flat;
+	}
+	&-animate{
+		@extend %button-animate;
+	}
+	&-primary:hover{
+		background-color: $color-sub-light !important; // Sorry!
+	}
+}
+
+//------------------
+//	!A tag
+//------------------
+
+a{
+	cursor: pointer;
+	color: $color-accent;
+	background: transparent;
+	text-decoration: none;
+	transition: color $ts $tt;
+
+	&:hover{
+		color: $color-accent-dark;
+		text-decoration: none;
+	}
+
+	&.download-link{
+		&:before{
+			@extend .glyphicon ;
+			@extend .glyphicon-file ;
+			margin-right: 0.5rem;
+		}
+		font-weight: 700;
+
+	}
+
+	&.tertiary{
+		color: $color-accent;
+		font-size: 1.8rem;
+    line-height: 2.4rem;
+		padding-right: 1em;
+		&:hover{ color: $color-accent-dark; }
+		&:after{
+			content: "\e080";
+			font-size: 1rem;
+			top: 0;
+			@extend .glyphicon;
+		}
+	}
+}
+
+
+//------------------
+//	!Base
+//------------------
+
+%button-base{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	width: auto;
+	padding: 12px 12px 11px 10px;
+	margin: 0 0 1em;
+	outline: none;
+	background-image: none;
+	white-space: nowrap;
+	user-select: none;
+	text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border-radius: $button-radius;
+  transition: none;
+	@extend %font-button;
+
+	&.xl{ font-size: 1.1em; }
+	&.lg{ font-size: 1.1em; }
+	&.sm{ font-size: 0.9em; }
+	&.xs{ font-size: 0.75em; }
+
+	&.xs, &.sm{
+		min-width: 0;
+		padding: 5px 10px;
+	}
+
+	&.full-width{ width: 100%; }
+
+	a{
+    text-decoration: none;
+    &:hover{ text-decoration: none; }
+  }
+
+  &:hover{ text-decoration: none; }
+
+  &:active{
+  	box-shadow: none;
+  	font-weight: $font-bold;
+  }
+
+	>.fa-spinner {
+		margin-left: 0.5rem;
+	}
+
+  @include break(md){ min-width: 200px; }
+}
+
+
+//------------------
+//	!Raised
+//------------------
+
+%button-raised{
+	@extend %button-base;
+	color: $white;
+	border: none;
+	background: $color-brand;
+	@extend %button-raised-colors;
+
+	&:hover, &:active{
+		background: $color-brand-dark;
+		color: $white;
+		text-decoration: none;
+		a{ color: $white; }
+	}
+
+	a{ color: $white; }
+
+	p, h1, h2, h3, h4, h5, h6{
+		margin: 0;
+		padding: 0;
+	}
+
+	input[type="submit"]{
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		z-index: 1;
+		opacity: 0;
+	}
+}
+
+%button-raised-colors{
+	@each $i in $colors{
+		&.btn-#{nth($i, 1)}{
+			color: set-text-color( nth($i, 2) );
+			border: 0px;
+			background: nth($i, 2);
+			border-color: darken( nth($i, 2), 10% );
+			a, p, span, h1, h2, h3, h4, h5, h6, i, span{
+				color: set-text-color( nth($i, 2) );
+				text-decoration: none;
+				i, span{ color: $white; }
+			}
+			&:hover{
+				background: darken( nth($i, 2), 10% );
+				color: set-text-color( nth($i, 2) );
+				border: 0px;
+			}
+			&:before, &:after, span{ color: set-text-color( nth($i, 2) ); }
+		}
+	}
+}
+
+
+//------------------
+//	!Flat
+//------------------
+
+%button-flat{
+	@extend %button-base;
+	background: transparent;
+	border: 1px solid $color-brand;
+	color: $color-brand;
+	&:hover, &:active{ color: $black-80; background: transparent; }
+	@extend %button-flat-colors;
+}
+
+%button-flat-colors{
+	@each $i in $colors{
+		&.btn-#{nth($i, 1)}{
+			color: nth($i, 2);
+			border-color: nth($i, 2);
+			a, p, span, h1, h2, h3, h4, h5, h6{ color: nth($i, 2); }
+			&:hover{ color: $black-80; background: transparent; }
+		}
+	}
+}
+
+
+//------------------
+//	!Border
+//------------------
+
+%button-border{
+	@extend %button-base;
+	background: transparent;
+	border: 1px solid $color-brand;
+	color: $color-brand;
+	&:hover, &:active{
+		background: $color-brand;
+		color: $white;
+	}
+	@extend %button-border-colors;
+}
+
+%button-border-colors{
+	@each $i in $colors{
+		&.btn-#{nth($i, 1)}{
+			color: nth($i, 2);
+			border: 1px solid nth($i, 2);
+			background: transparent;
+			a, p, span, h1, h2, h3, h4, h5, h6{ color: nth($i, 2); }
+			&:hover{
+				color: $white;
+				background: nth($i, 2);
+			}
+		}
+	}
+}
+
+
+//------------------
+//	!Animate
+//------------------
+
+%button-animate{
+	@extend %button-raised;
+	overflow: hidden;
+	i{
+		top: -50%;
+		position: absolute;
+		display: inline-block;
+		font-size: 1.4em;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		transition: top $ts;
+		transition-timing-function: $tt;
+		@include font-smoothing;
+	}
+	a, span{
+		display: block;
+		width: 100%;
+		height: 100%;
+		text-shadow: none;
+		transform: translate(0, 0);
+		transition: transform $ts;
+		transition-timing-function: $tt;
+	}
+	span:nth-of-type(2){
+		top: -50%;
+		position: absolute;
+		display: inline-block;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		transition: top $ts;
+		transition-timing-function: $tt;
+		@include font-smoothing;
+	}
+	input{
+		position: absolute; top: 0; left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		opacity: 0;
+	}
+	&:hover{
+		text-decoration: none;
+		&:before, &:after, i{
+			top: 50%;
+		}
+		a, span{
+			transform: translate(0, 150%);
+		}
+		span:nth-of-type(2){
+			top: 50%; left: 0;
+			transform: translate(0, -33%);
+		}
+	}
+}
+
+
+//------------------
+//	!FAB: Floating Action Button
+//------------------
+
+.fab{
+	position: fixed; bottom: 0; right: 1em;
+	cursor: pointer;
+	width: 3.5em;
+	height: 3.5em;
+	color: $black-80;
+	background: $black-5;
+	border-radius: 50%;
+	transition: opacity 0.5s;
+	z-index: 3;
+	@include box-shadow-level(1);
+	@extend %button-raised-colors;
+	&:hover{
+		background: $white;
+		@include box-shadow-level(2);
+	}
+	i, span{
+		padding: 0;
+		color: $black-80;
+		font-size: 1.5em;
+		line-height: 1em;
+		@include align-absolute();
+	}
+}
+
+
+//------------------
+//	!Mobile menu button
+//------------------
+
+.button-menu{
+	display: none;
+	cursor: pointer;
+	padding: 1em 0.5em;
+	user-select: none;
+	@extend %button-menu-colors;
+	.lines{
+		position: relative;
+		transform-origin: center center;
+		@extend %line;
+		&:before,
+		&:after{
+			position: absolute;
+			content: '';
+			z-index: 1;
+			@extend %line;
+		}
+		&:before{ top: 0.5em }
+		&:after{ top: -0.5em; }
+	}
+	&:hover{ opacity: 1; }
+	@include break( md ) {
+		display: inline-block;
+	}
+}
+
+// CSS line
+%line{
+	display: block;
+	width: 1.5em;
+	height: 0.2em;
+	background: $black-80;
+	transition: transform $ts, top $ts, background $ts, width $ts;
+	transition-timing-function: ease;
+}
+
+%button-menu-colors{
+	@each $i in $colors{
+		&.btn-#{nth($i, 1)}{
+			&.button-close .lines{
+				background: rgba( nth($i, 2), 0 );
+				&:before, &:after{ background: nth($i, 2); }
+			}
+			.lines, .lines:before, .lines:after{ background: nth($i, 2); }
+		}
+	}
+}
+
+//--- X transformation --//
+.button-menu{
+	&.button-close{
+		pointer-events: none;
+		.lines{
+			&:before, &:after {
+				top: 0;
+			}
+			&:before{ transform: rotate( 40deg ); }
+			&:after{ transform: rotate( -40deg ); }
+		}
+	}
+}
+
+//--- Arrow transformation --//
+.button-menu.arrow-left,
+.button-menu.arrow-right{
+	&.button-close{
+		pointer-events: none;
+		.lines{
+			transform: rotate( -180deg );
+			&:before, &:after { top: 0; width: 3.6em; }
+		}
+	}
+}
+
+.button-menu.arrow-left{
+	.lines{
+		right: 0;
+		&:before, &:after{ right: 0; transform-origin: center center; }
+	}
+	&.button-close .lines{
+		&:before, &:after{
+			right: 0.125em;
+			transform-origin: center center;
+		}
+		&:before{ transform: rotate( -40deg ); }
+		&:after{ transform: rotate( 40deg ); }
+	}
+}
+
+.button-menu.arrow-right{
+	.lines{
+		left: 0;
+		&:before, &:after{ transform-origin: center center; }
+	}
+	&.button-close .lines{
+		&:before, &:after{
+			left: 0;
+			transform-origin: center center;
+		}
+		&:before{ transform: rotate( 40deg ); }
+		&:after{ transform: rotate( -40deg ); }
+	}
+}
+
+//------------------
+//	!Button group
+//------------------
+
+.button-group{
+	display: inline-block;
+	position: relative;
+	border-radius: $button-radius;
+	margin-bottom: 1.5625em;
+	@include cf;
+	&[data-info-title]{ padding-right: 1.5em; }
+	&.full-width{
+		display: flex;
+		> .button{ flex-grow: 1; }
+	}
+	> i{ flex-shrink: 1; }
+	> .button{
+		margin: 0;
+		float: left;
+		border-left-width: 1px;
+		border-left-style: solid;
+		box-shadow: none;
+		.labeled-radio{
+			pointer-events: none;
+			label{
+				padding: 0;
+				margin: 0;
+				&:before{ display: none; }
+			}
+		}
+		&.active{
+			color: $white;
+			background: $color-brand;
+			border-color: $color-brand-dark;
+			.labeled-radio label{
+				color: $white;
+				&:before{ display: none; }
+			}
+			&:hover{ background: $color-brand-light; }
+		}
+		&:first-child{
+			border-radius: $button-radius 0 0 $button-radius;
+			border: none;
+		}
+		&:last-child{ border-radius: 0 $button-radius $button-radius 0; }
+		&:hover{ @include box-shadow-level( 2 ); }
+	}
+@extend %button-group-colors;
+}
+
+%button-group-colors{
+	@each $i in $colors{
+		&.btn-#{nth($i, 1)}{
+			color: nth($i, 2);
+			a, p, span, h1, h2, h3, h4, h5, h6{ color: nth($i, 2); }
+			&:hover{ color: lighten( nth($i, 2), 10% ); }
+			> .button.active{
+				color: $white;
+				background: nth($i, 2);
+				border-color: darken( nth($i, 2), 10% );
+				.labeled-radio label{
+					color: $white;
+					&:before{ display: none; }
+				}
+				&:hover{ background: lighten( nth($i, 2), 10% ) }
+			}
+		}
+	}
+}
+
+
+//------------------
+//	!Onclick: Ripple animation
+//------------------
+
+.ripple{
+	position: absolute;
+	background-color: rgba( 0, 0, 0, 0.45 );
+	border-radius: 100%;
+	height: 5em;
+	width: 5em;
+	transform: scale( 0 );
+	&-animate{
+		animation: ripple 0.4s linear;
+	}
+}
+
+@-webkit-keyframes ripple{
+	100%{
+		transform: scale( 12 );
+		background-color: transparent;
+	}
+}
+
+@keyframes ripple{
+	100%{
+		transform: scale( 12 );
+		background-color: transparent;
+	}
+}

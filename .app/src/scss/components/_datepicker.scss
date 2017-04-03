@@ -1,0 +1,52 @@
+.picker .picker__holder{
+	max-width: 100%;
+	width: 100%;
+
+	.picker__month, .picker__year{
+		font-size: 1.125em;
+		color: $black;
+		font-weight: normal;
+	}
+
+	.picker__nav--next:hover,
+	.picker__nav--prev:hover{
+		background-color: transparent;
+	}
+
+	.picker__header select.picker__select--month,
+	.picker__header select.picker__select--year{
+		margin-top: -0.2em;
+		padding: 0 0 0.2em;
+		height: auto;
+		width: auto;
+		display: inline-block;
+		box-sizing: content-box;
+		color: $black;
+		border: 1px solid $black-30;
+		background: $black-5;
+		border-radius: $button-radius;
+		appearance: menulist;
+	}
+
+	.picker__header select.picker__select--month{ width: 35%; }
+	.picker__header select.picker__select--year{ width: 22.5%; }
+
+	.picker__table{
+		font-size: 1.125em;
+		td, th, tr, thead{
+			border: none;
+			text-align: center;
+			line-height: 1em;
+		}
+		tr:hover, tr.active{ background: transparent; }
+		.picker__day--today:before{ border: 1px solid $color-accent; }
+		.picker__day--today:before{ content: none; }
+		.picker__day--today.picker__day--infocus:hover{ background: $color-accent; }
+		.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{ background: $color-accent; border: 1px solid $color-accent; }
+		.picker__day--infocus:hover, .picker__day--outfocus:hover{ background: transparent; border: solid 1px $color-accent; }
+		.picker__day--outfocus:hover{ color: $black-10; }
+		.picker__day--disabled, .picker__day--disabled:hover, .picker--focused .picker__day--disabled{ background: $black-5; border: 1px solid $black-5; }
+	}
+
+	.picker__footer button:before{ content: none; }
+}

@@ -1,0 +1,35 @@
+//------------------
+//	!Chip
+//------------------
+
+.chip{
+	@extend %font-caption;
+	position: relative;
+	display: inline-block;
+	height: 2.2em;
+	background: $black-10;
+	color: $black-60;
+	border-radius: 2em;
+	line-height: 2.2em;
+	margin-bottom: 1em;
+	font-size: 0.8em;
+
+	i{
+		display: inline-block;
+		width: 2.1em;
+		height: 100%;
+		background: $color-accent;
+		color: $white;
+		border-radius: 50%;
+		font-size: 1.1em;
+		line-height: 2.1em;
+		text-align: center;
+		overflow: hidden;
+		float: left;
+		img{
+			height: 100%;
+		}
+	}
+
+	span{ color: $black-60; padding: 0 0.8em; }
+}

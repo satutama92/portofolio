@@ -1,0 +1,381 @@
+// Richtext
+p.richtext{
+	font-size: 1.8rem !important;
+  line-height: 2.6rem !important;
+}
+h2.richtext,
+h3.richtext,
+h4.richtext,
+h5.richtext,
+h6.richtext,
+p.richtext {
+		margin: 0 !important;
+}
+h2.richtext,
+h3.richtext {
+  font-size: 2.6rem;
+    line-height: 3.2rem;
+    padding-bottom: 3rem;
+}
+
+h2.richtext,
+h4.richtext,
+h6.richtext {
+		color:  $color-sub;
+}
+h3.richtext,
+h5.richtext {
+		color: $black-75;
+}
+
+h4.richtext,
+h5.richtext {
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+		padding-bottom: 2rem;
+
+}
+
+h6.richtext{
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		padding-bottom: 2rem;
+}
+
+p.richtext {
+	padding-bottom: 2rem;
+	a {
+		display: inline;
+		padding-bottom: 0;
+		border-bottom: .1rem solid #1e6f7e;
+
+		&[href^="tel:"] {
+			border-bottom: 0;
+			color:  $color-sub;
+			letter-spacing: .05rem;
+			white-space: nowrap;
+		}
+	}
+}
+
+small.richtext  {
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+  a {
+    font-size: 1.4rem;
+  	line-height: 2.2rem;
+    display: inline;
+		padding-bottom: 0;
+		border-bottom: .1rem solid #1e6f7e;
+
+		&[href^="tel:"] {
+      font-size: 1.4rem;
+    	line-height: 2.2rem;
+      font-weight: 700;
+      border-bottom: 0;
+      color: $color-sub;
+      letter-spacing: .05rem;
+      white-space: nowrap;
+		}
+  }
+}
+.tertiary{
+  &:after{
+    color: #1e6f7e;
+    font-size: 1rem;
+    font-family: 'Glyphicons Halflings';
+    content: "\e080";
+    top: 0.1rem;
+    position: relative;
+  }
+}
+.info-link{
+	border-bottom: none !important;
+  &:after{
+    color: #1e6f7e;
+    margin-left: .4rem;
+    font-family: 'Glyphicons Halflings';
+    content: "\e086";
+    top: 0.1rem;
+    position: relative;
+  }
+}
+a.richtext {
+	display: block;
+	padding-bottom: 2rem;
+}
+
+ol.richtext,
+ul.richtext {
+	p {
+		padding-bottom: 0;
+	}
+}
+
+ol.richtext {
+	margin-top: .6rem;
+	counter-reset: counter;
+	padding-left: 0;
+  list-style: none;
+	li {
+    counter-increment: counter;
+		position: relative;
+		line-height: 2.2rem;
+		margin-bottom: 0.6rem;
+	}
+}
+
+figcaption {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  margin-top: 1rem;
+  color: #787887;
+}
+
+.richtext-image {
+  &-large {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    @include break(md){margin: 0;};
+    img{
+      width: 100%;
+      height: auto;
+    }
+    @include break(md) {
+      max-width: 100%;
+    }
+    figcaption {
+      padding: 0 2rem;
+
+        @include break(md) {
+        padding: 0;
+      }
+    }
+  }
+
+  &-medium {
+    max-width: 58rem;
+    padding-bottom: 4rem;
+    float: left;
+		margin-right: 3rem;
+    img{
+      width: 100%;
+      height: auto;
+    }
+    @include break(md) {
+      max-width: 60%;
+
+    }
+    &-middle{
+      margin: 0 auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      @include break(md) {
+        max-width: 60%;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+    &-right{
+      margin-left: 3rem;
+      float: right;
+      padding-bottom: 2rem;
+      max-width: 58rem;
+      @include break(md) {
+        max-width: 60%;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &-small {
+    float: left;
+    margin-right: 3rem;
+    max-width: 44rem;
+    padding-bottom: 2rem;
+    @include break(md) {
+      max-width: 20rem;
+    }
+    img{
+      width: 100%;
+      height: auto;
+    }
+    &-middle{
+      margin: 0 auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      @include break(md) {
+        max-width: 20rem;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+    &-right{
+      margin-left: 3rem;
+      float: right;
+      padding-bottom: 2rem;
+      @include break(md) {
+        max-width: 20rem;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+ul.bullet{
+  li{
+    &:before{
+      content: "\25cf";
+      color: $color-accent;
+    }
+    &:first-child{
+      margin-top: 1rem !important;
+    }
+  }
+}
+
+ul.checkmark-list.small{
+		li {
+			font-size: 1.4rem;
+			line-height: 2.2rem;
+			padding-left: 1.7rem;
+			&:before{
+				font-size: .8rem;
+			}
+		}
+}
+
+ul.checkmark-list{
+	.small{
+		li {
+			font-size: 1.4rem;
+			line-height: 2.2rem;
+		}
+	}
+	li{
+    &:first-child{
+      margin-top: 1rem !important;
+    }
+  }
+}
+
+ol.numbered{
+  list-style-type: none;
+  counter-reset: item;
+  margin: .6rem 0 1.2rem 0;
+  padding: 0;
+  ol{
+    list-style-type: none;
+    counter-reset: item;
+    margin: .6rem 0 1.2rem 0;
+    padding: 0;
+  }
+  li {
+    display: table;
+    counter-increment: item;
+    font-size: 1.8rem !important;
+    line-height: 2.6rem !important;
+    p{
+      padding: 0 !important;
+      font-size: 1.8rem !important;
+      line-height: 2.6rem !important;
+    }
+    &:before {
+        content: counters(item, ".") ". ";
+        display: table-cell;
+        padding-right: 0.6em;
+    }
+    li {
+        margin: 0;
+        &:before {
+            content: counters(item, ".") " ";
+        }
+    }
+  }
+}
+
+.btn-flat.secondary{
+  background: transparent;
+  color: #f17f07;
+  border-color: #f17f07;
+  &:hover{
+    background: #f17f07;
+    color: #fff;
+    border-color: #f17f07;
+  }
+}
+
+iframe{
+	max-width: 100%;
+	min-height: 40rem;
+}
+
+.m-teaser__container.Blue,
+.m-teaser__container.Orange,
+.m-teaser__container.Light-Green{
+  .btn.primary{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    border: 0.1px solid;
+    color: #fff;
+    opacity: 0.8;
+    transition: color 0s;
+  }
+  .btn-sub.conversion{
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+    color: #4b8c98;
+    opacity: 0.8;
+    transition: color 0s;
+  }
+  .btn-flat.secondary{
+    border-color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0s;
+    background: transparent;
+    opacity: 0.8;
+		&:hover{
+			background: rgba(255,255,255,0.2);
+		}
+  }
+  h2.richtext,
+  h3.richtext,
+  h4.richtext,
+  h5.richtext,
+  h6.richtext,
+  p.richtext,
+  figcaption,
+  ol.richtext,
+  ul.richtext,
+  small.richtext,
+  a.richtext,
+  .bullet li,
+  p,
+  .checkmark-list li,
+  ul.bullet li:before,
+  ul li:before,
+  {
+  		color: white !important;
+  }
+  p.richtext,
+  small.richtext{
+    a {
+      border-bottom: .1rem solid white;
+			&[href^="tel:"] {
+				font-weight: 700;
+			}
+    }
+  }
+}

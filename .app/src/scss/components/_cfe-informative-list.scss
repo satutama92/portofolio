@@ -1,0 +1,19 @@
+#cfe-product-informative-values-list {
+  display: none;
+
+  p, li {
+    padding: 1rem 1rem 1rem 0;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    border-bottom: 0.01rem solid $table-border-color;
+  }
+
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  ul {
+    margin: 0 0 3rem;
+  }
+}

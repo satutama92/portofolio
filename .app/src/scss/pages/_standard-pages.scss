@@ -1,0 +1,10 @@
+.header-stage-wrapper.standard{
+  .stage-image-wrapper img{
+    max-height: 6.4rem;
+    max-width: 9.6rem;
+    @include break(md){max-height: 8rem;  max-width: 40rem;}
+    position: relative;
+    float: right;
+    margin-top: 1.6em;
+  }
+}

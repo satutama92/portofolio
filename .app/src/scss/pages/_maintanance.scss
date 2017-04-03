@@ -1,0 +1,21 @@
+body#maintanance-page{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: $color-bg;
+
+	#main-wrapper{
+		display: table;
+		width: 100%;
+    height: 100%;
+		#main{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			padding-bottom: 8em;
+			@extend .container;
+			h1{ font-size: 2em; margin-bottom: 0.2em; }
+			p{ font-size: 1.2em; }
+		}
+	}
+}

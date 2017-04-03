@@ -1,0 +1,364 @@
+.block-search{
+	padding-top: 0;
+	position: relative;
+
+	.input-group{
+		position: relative;
+		width: 100%;
+		input{
+			@extend %input;
+			padding-top: 0;
+			padding-right: 4.2rem;
+			padding-bottom: 1.1rem;
+			font-family: $font-body;
+			font-weight: $font-bold;
+			&.form-control{
+				height: auto;
+				font-size: 1.8rem;
+				line-height: 2.4rem;
+			}
+		}
+		.input-group-btn{
+			position: absolute; right: 0; bottom: 0;
+			width: 4.5rem;
+			height: 3.6rem;
+			padding: 0;
+			background-color: transparent;
+			border: 0;
+			outline: 0;
+			button.btn{
+				position: absolute; top: .1rem; right: 1.3rem;
+				padding: 0;
+				font-size: inherit;
+				border: none;
+				background-color: transparent;
+				min-width: 0;
+				padding: 0;
+				span{
+			    font-size: 2.4rem;
+					color: $black-60;
+				}
+				&:hover{ background-color: transparent !important; }
+			}
+		}
+	}
+
+	.form-group{ margin-bottom: 1.5em; }
+}
+
+.Orange, .Blue{
+	.block-search{
+		.input-group{
+			input{
+				@include placeholder{
+					color: $white;
+					opacity: 0.8;
+				}
+			}
+			input.form-control{
+				border-bottom: solid 1px $white;
+				color: $white;
+			}
+		}
+		.input-group-btn{
+			button.btn{
+				span{
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+//------------------
+//	!Header
+//------------------
+
+.header-wrapper .navbar #block-search-form,
+.header-wrapper .block-search{
+	padding-top: 0;
+	margin: 0;
+	float: right;
+	width: 100%;
+
+	.input-group{
+		position: relative;
+		width: 100%;
+		input{
+			@extend %input;
+			padding-top: 0.2em;
+			padding-right: 2.2em;
+			font-size: 18px;
+		}
+		.input-group-btn{
+			position: absolute; right: 0; bottom: 0;
+			width: 4.5rem;
+			height: 3.6rem;
+			button.btn{
+				position: absolute; top: 0; right: 1.3rem;
+				border: none;
+				background-color: transparent;
+				min-width: 0;
+				padding: 0;
+				font-size: 0;
+				line-height: 1rem;
+				span{ font-size: 2.4rem; color: $black-60; font-size: inherit; }
+				&:hover{ background-color: transparent; }
+			}
+		}
+	}
+
+	form{ padding-bottom: 4rem; }
+
+	@include break(md){
+		margin-top: .1rem;
+    margin-bottom: 0;
+		display: block;
+		right: 80px;
+		width: auto;
+
+		.input-group{
+			padding-bottom: 0;
+			input{
+				width: 5.8rem;
+		    height: 2.6rem;
+		    padding-right: 2rem;
+		    padding-bottom: .2rem;
+				border-bottom: 0;
+				font-size: 1.2rem;
+				line-height: 1rem;
+				@include placeholder{
+					color: $color-accent;
+				}
+			}
+			.input-group-btn{
+				position: absolute; bottom: 0; right: 0;
+		    width: 2rem;
+		    height: 2.6rem;
+		    padding: 0;
+				button.btn{
+					position: absolute; top: .6rem; right: 0;
+					border: none;
+					background-color: transparent;
+					min-width: 0;
+					padding: 0;
+					margin-bottom: 0;
+					span{ font-size: 1.4rem; color: $color-accent; }
+				}
+			}
+		}
+
+		form{ padding-bottom: 0; }
+	}
+
+	.form-actions{ display: none; }
+
+	@include break(md){
+		position: absolute; top: 0;
+	}
+}
+
+
+//------------------
+//	!Search results (SOLR)
+//------------------
+
+/*--- !Search field ---*/
+.search-form .form-inline{
+	display: flex;
+	margin-bottom: 0;
+	.form-group, .form-group input{
+		width: 100%;
+		padding-right: 2em;
+	}
+	button{ margin-top: 1.2em; }
+}
+
+/*--- !Results list ---*/
+.search-results{
+	padding: 0;
+
+	li .search-result-wrapper{
+		margin-top: 2em;
+		h3.title{
+			text-decoration: none;
+			a{
+				color: $color-sub;
+			}
+		}
+	}
+
+	.search-result-url cite{
+		color: $color-accent;
+	}
+
+	.search-result-snippet-wrapper{
+		border-bottom: solid 1px $black-15;
+		padding-bottom: 1em;
+		margin-bottom: 0;
+	}
+}
+
+/*--- !SOLR blocks: Sort by ---*/
+.block-apachesolr-search{
+	padding: 1em;
+	background: $color-accent;
+
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li{
+			border-bottom: solid 1px $glow-15;
+			a{
+				display: block;
+				color: $glow-80;
+				padding: 0.5em 0;
+			}
+			img{ float: right; margin-top: 0.6em; }
+			&:last-child{ border-bottom: 0; }
+			&:hover a{ color: $white; background: $glow-5; }
+		}
+	}
+
+	h2{ color: $white; }
+}
+
+/*--- !SOLR blocks: Spelling ---*/
+.spelling-suggestions{
+	position: relative;
+	background: $black-5;
+	color: $color-accent;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	dl{
+		margin: 0;
+		a{
+			color: $color-accent;
+			&:hover{ text-decoration: underline; }
+		}
+	}
+	&:before{
+		position: absolute; top: -0.7em; left: 0.5em;
+		@include triangle(top, $black-5, 0.5em);
+	}
+}
+
+/*--- !SOLR blocks: Suggestions ---*/
+.apachesolr-browse-blocks{
+	background: $color-accent;
+	color: $white;
+	padding: 1em;
+	margin-top: 1.5em;
+	@include cf;
+
+	h2{
+		color: $white;
+		font-size: 1.4em;
+		margin-top: 0;
+	}
+
+	#block-facetapi-apachesolr-author,
+	#block-facetapi-apachesolr-created{
+		display: inline-block;
+		float: left;
+		width: 50%;
+		margin-top: 2em;
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li{
+				border-bottom: 1px solid $glow-15;
+				a{
+					display: block;
+					color: $glow-80;
+					padding: 0.5em;
+					margin: 0;
+				}
+				&:last-child{ border-bottom: 0; }
+				&:hover a{ color: $white; background: $glow-5; }
+			}
+		}
+		h2{ font-size: 1.2em; }
+	}
+
+	#block-facetapi-apachesolr-author{
+		padding-right: 2em;
+	}
+}
+
+.region-navigation .block-views{
+	#edit-type-wrapper{ display: none;}
+	.views-submit-button{ display: none;}
+	@include break(md){
+		position: absolute;
+		top:0;
+		right: 62px;
+		float: right;
+		.views-widget-filter-combine{
+			padding: 0.1em 1em 0 0;
+			.form-item-combine{
+				margin: 0;
+				&::after{
+					font-family: 'Glyphicons Halflings';
+			    content: "\e003";
+			    position: absolute;
+			    right: 0;
+			    top: 0;
+			    text-align: center;
+			    font-size: 1.4rem;
+			    color: $color-accent;
+				}
+			}
+			input{
+				width: 5.8rem;
+		    height: 2.6rem;
+		    padding: .2rem 2rem .2rem 0;
+		    border-bottom: 0;
+		    font-size: 1.2rem;
+		    line-height: 1rem;
+				color: $color-accent;
+				&::-webkit-input-placeholder{
+					color: $color-accent;
+				}
+				&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+				   color: $color-accent;
+				   opacity:  1;
+				}
+				&::-moz-placeholder { /* Mozilla Firefox 19+ */
+				   color: $color-accent;
+				   opacity:  1;
+				}
+				&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+				   color: $color-accent;
+				}
+			}
+		}
+	};
+}
+.region-footer-1 .block-views .views-submit-button{
+	display: none;
+}
+
+/*--- !Page buttons ---*/
+ul.pagination li{
+	span, a{
+		color: $color-accent;
+		padding: 0.5em 0.8em;
+	}
+
+	&.active{
+		span, a{
+			color: $white;
+			background: $color-accent;
+		}
+		&:hover span, &:hover a{ background: $color-accent-dark; }
+	}
+
+	&:hover span, &:hover a{ background: $black-5; }
+}
+
+.ui-autocomplete{
+	display: none !important;
+}

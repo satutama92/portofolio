@@ -1,0 +1,204 @@
+.icon-menu{
+  padding-top: 2rem;
+  width: 100%;
+
+  ul.nav{
+    position: static;
+  	display: table;
+  	width: 100%;
+    padding: 0;
+    @include break(md){ width: auto; }
+    li{
+      position: static;
+      display: table-cell;
+      width: 33%;
+      padding: 0 0 .9rem;
+      float: none;
+      text-align: center;
+
+      a{
+        display: inline-block;
+        font-size: 1.8rem;
+        color: $color-accent;
+        background-color: transparent;
+        padding: 0 0 .9rem;
+        line-height: 2.6rem;
+        &:before{
+          display: block;
+          padding-bottom: 1rem;
+          font-size: 2.9rem;
+          line-height: 2.9rem;
+          text-align: center;
+          @extend %smile-icon;
+          @include break(md){ padding-bottom: .4rem; font-size: 2.2rem; line-height: 2.2rem; }
+        }
+  			&:hover, &:focus, &:active{ color: $color-accent-dark; background: transparent; }
+      }
+
+      &.open a{
+        color: $color-sub;
+        border-bottom: .2rem solid $color-sub;
+      }
+
+      &:first-child{
+        text-align: left;
+      }
+
+      &:last-child{
+        text-align: right;
+      }
+
+      @include break(md){
+        padding: .8rem 2rem 0;
+        width: auto;
+        &:first-child, &:last-child{ text-align: center; padding-left: 0; padding-right: 0; }
+      }
+    }
+  }
+
+  @include break(md){ padding-top: 2.3rem; }
+}
+
+
+//------------------
+//  !Flyout
+//------------------
+
+.menu-flyout{
+  display: none;
+  padding-top: 4.8rem;
+  padding-bottom: 4rem;
+  @include break(md){ min-height: 40rem; }
+
+  h3, h2.block-title{
+    color: $color-sub;
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h3.title-section{ color: $black-60; }
+
+  .form-group{
+    margin-bottom: 1rem;
+    @include break(md){
+      input, textarea{
+        padding: 1rem;
+        background: $white;
+        border: none;
+        font-size: 1.8rem;
+        font-weight: $font-bold;
+        color: $color-accent;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        resize: none;
+      }
+    }
+    input, textarea, select{ @include placeholder{ color: #787887; font-weight: $font-regular; } }
+  }
+
+  .col-sm-4{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    &:first-child{ padding-top: 0; }
+    @include break(md){
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+
+  .btn{
+    min-width: auto;
+    padding: 1rem 2rem 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    white-space: normal;
+  }
+
+  a.tertiary{
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .flyout{ display: none; }
+}
+
+/*----  !Login ----*/
+
+.login-flyout{
+
+  .form-group input, .form-group textarea, .form-group select{
+    padding: 1rem;
+    background: $white;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: $font-bold;
+    color: $color-accent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    resize: none;
+  }
+
+  .form-group select{
+    font-weight: $font-regular;
+    color: $black-50;
+    + .select-chevron{ margin-right: 1rem; margin-top: -3.3rem; }
+    &:disabled, &:disabled + .select-chevron{
+      opacity: .4;
+    }
+  }
+
+  #cfe-login-form {
+    @extend .col-md-4;
+    @extend .col-md-offset-4;
+    
+    .btn{ min-width: 20rem; }
+    .stepper-nav{ text-align: left; }
+  }
+
+  .logged-in-list a{
+    display: block;
+    @extend .tertiary;
+  }
+}
+
+
+/*----  !Contact ----*/
+.contact-flyout{
+
+  .col-sm-4:nth-child(2){
+    background: $white;
+    @include break(md){ background: transparent; }
+  }
+
+  .views-row{
+    margin: 0;
+    padding: 0;
+    border: none;
+    header{ display: none; }
+  }
+
+}
+
+.login-flyout, .calculator-flyout{
+  .col-sm-4{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+/*----  !Calculator ----*/
+.calculator-flyout{
+  .jump-menu-calculator .ctools-jump-menu-button{
+    margin: 0;
+  }
+}
+
+.region-flyout-contact-center, .region-flyout-contact-right{
+  h3, h2.block-title{ color: $black-70; }
+}

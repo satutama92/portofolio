@@ -1,0 +1,225 @@
+$transparency-bg-color-container-dots: rgba(0, 0, 0, .40);
+$transparency-bg-color-single-dot-container: rgba(0, 0, 0, .20);
+$component: '.m-product-section-navi';
+
+.m-product-section-navi {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+	z-index: 10;
+	@include break(md){
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		opacity: 1;
+		transition: opacity .5s linear;
+		width: auto;
+		bottom: auto;
+	}
+
+	// TEMP FIX!
+	@include break(md){
+		li>a.m-product-section-navi__link{
+			&:before{ top: .2rem; }
+			>span.m-product-section-navi__link-part.m-product-section-navi__link-part--label{
+				width: 10rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				line-height: 1rem;
+				margin-top: -0.2rem;
+			}
+		}
+	}
+	// TEMP FIX
+
+	&.state--hidden {
+		opacity: 0;
+		overflow: hidden;
+		visibility: hidden;
+		transition: visibility 0s linear .5s, opacity .5s linear;
+	}
+	&__dots-container {
+		@include clearfix;
+		background-color: $transparency-bg-color-container-dots;
+		width: 100%;
+		margin-bottom: 0;
+		padding: 0;
+		list-style: none;
+		@include break(md){
+			width: 3rem;
+			border-radius: .6rem 0 0 .6rem;
+			padding: 1.8rem 0;
+			margin: 0;
+			height: auto;
+			transition: width .3s linear .3s;
+		}
+		#{$component}__link-part--label {
+			width: 100%;
+			@include break(md){
+				opacity: 0;
+				transition: opacity .3s linear;
+				display: block;
+				width: 800%;
+			}
+		}
+		&.state--open {
+			@include break(md){
+				width: 14rem;
+				transition: width .3s linear;
+			}
+			#{$component}__link-part--label {
+				@include break(md){
+					opacity: 1;
+					transition: opacity .3s linear .3s;
+				}
+			}
+		}
+	}
+	&__item {
+		height: 5rem;
+		@include break(md){
+			font-size: 1.2rem;
+      line-height: 1.2rem;
+			height: 2rem;
+			cursor: pointer;
+			opacity: .6;
+			padding: .7rem 0 .5rem 1rem;
+		}
+		&:not(&--arrow) {
+			display: none;
+			@include break(md){
+				display: block;
+			}
+		}
+		&:hover {
+			@include break(md){
+				opacity: 1;
+				background-color: $transparency-bg-color-single-dot-container;
+			}
+		}
+		&--arrow {
+			width: 50%;
+			float: left;
+			@include break(md){
+				float: none;
+				width: 100%;
+			}
+			#{$component}__link-part--label {
+				display: block;
+				width: 70%;
+				margin: 0;
+				float: left;
+				@include break(md){
+					float: none;
+					display: block;
+					width: 100%;
+				}
+			}
+			#{$component}__link::before {
+				font-size: 1.4rem;
+        line-height: 1.4rem;
+				font-family: 'Glyphicons Halflings';
+				font-style: normal;
+				font-weight: normal;
+				line-height: 1;
+				font-smoothing: antialiased;
+				border: 0;
+				height: auto;
+				width: auto;
+				top: 16px;
+				@include break(md){
+					right: 1rem;
+					//top: -.3rem;
+					// TEMP FIX
+					top: -0.2rem !important;
+				}
+			}
+		}
+		&--arrow-top {
+			@include break(md){
+				margin-bottom: 1rem;
+			}
+			#{$component}__link::before {
+				content: '\e093';
+				left: 5%;
+				@include break(md){
+					left: auto;
+				}
+			}
+			#{$component}__link-part--label {
+				padding-left: 20%;
+				@include break(md){
+					padding-left: 0;
+				}
+			}
+		}
+		&--arrow-bottom {
+			@include break(md){
+				margin-top: 1rem;
+			}
+			#{$component}__link::before {
+				content: '\e094';
+				right: 5%;
+				@include break(md){
+					left: auto;
+					right: 1rem;
+				}
+			}
+			#{$component}__link-part--label {
+				float: right;
+				text-align: right;
+				padding-right: 20%;
+				@include break(md){
+					float: none;
+					padding-right: 0;
+					text-align: left;
+				}
+			}
+		}
+		&.state--selected, &.active {
+			@include break(md){
+				opacity: 1;
+			}
+			#{$component}__link::before {
+				background: $white;
+			}
+		}
+	}
+	&__link {
+		color: $white;
+		position: relative;
+		display: block;
+		height: 100%;
+		padding: 1.6rem 0 2rem;
+		@include break(md){
+			height: auto;
+			padding: 0;
+		}
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+		&::before {
+			content: ' ';
+			height: .8rem;
+			color: $white;
+			width: .8rem;
+			border-radius: 50%;
+			border: .1rem solid $white;
+			position: absolute;
+			top: 0;
+			right: 1.2rem;
+		}
+	}
+	&__link-part--label {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+		@include break(md){
+			font-size: 1.2rem;
+      line-height: .8rem;
+			width: 100%;
+		}
+	}
+}

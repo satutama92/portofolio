@@ -1,0 +1,129 @@
+//------------------
+//	!Variables
+//------------------
+
+/*--- !Brand colors ---*/
+$color-brand: 			#f89f00;
+$color-brand-light:	lighten( $color-brand, 10% );
+$color-brand-dark: 	#f17f07;
+
+$color-sub: 				#e95d0f;
+$color-sub-light:		#f17f07;
+$color-sub-dark:		#d04d01;
+
+$color-accent: 			#1e6f7e;
+$color-accent-light:#228291; //#4b8c98;
+$color-accent-dark: #005c6d;
+$color-accent-trans:#a4d5de;
+
+/*--- !BG colors ---*/
+$color-bg: 					#e1e7ee;
+$color-bg-blue: 		#eef3f8;
+$color-bg-blue-light:#f0f6fa;
+
+/*--- !Buttons and animations ---*/
+$button-radius:			6px;
+$ts: 0.3s; // Transition speed
+$tt: cubic-bezier( 0.7, 0, 0.3, 1 ); // Transition timing
+
+
+//------------------
+//	!Imports
+//------------------
+
+/*--- !Vendor: Third party ---*/
+@import "vendors/font-awesome/font-awesome.scss";
+@import "vendors/bootstrap/bootstrap.scss";
+@import "vendors/materialize/materialize.scss";
+@import "vendors/datepicker/classic.scss";
+@import "vendors/datepicker/classic.date.scss";
+@import "vendors/datepicker/classic.time.scss";
+
+/*--- !Utils: Functions and mixins ---*/
+@import "utils/*";
+
+/*--- !Base: Colors, type, grid ---*/
+@import "base/*";
+
+/*--- !Components: Blocks ---*/
+@import "components/*";
+
+/*--- !Pages: Page specific styling ---*/
+@import "pages/*";
+
+
+//------------------
+//	!Basic
+//------------------
+
+.page-header{ border-bottom: 0; }
+
+@include break(md){
+	.container, .container-fluid{
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
+}
+
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+	>li {
+		margin-bottom: .6rem;
+	}
+}
+
+//------------------
+//	!Checkmark list
+//------------------
+
+.modular, section.part, .cooperation .content-right-half,.cooperation .content-left-half{
+	ul li{
+		position: relative;
+		line-height: 2.2rem;
+		padding-left: 2.7rem;
+		margin-bottom: 0.6rem;
+		margin-top: 1rem;
+		&:before{
+			position: absolute; left: 0;
+			font-size: 1.6rem;
+			line-height: 2.2rem;
+			margin-right: 0.5rem;
+			@extend .glyphicon;
+			@extend .glyphicon-ok;
+		}
+		&:first-child{ margin-top: 0; }
+	}
+}
+
+#block-system-main .field-items {
+	padding: 6rem 0;
+}
+
+section.part ul li:before{ color: $white; }
+section.color-bg ul li:before{ color: $white; }
+.modular, .cooperation{
+	ul li:before{ color: $color-accent; }
+}
+.quicktabs-tabs li:before{ content: none!important; }
+// @-moz-document url-prefix() {
+//     select {
+//         height: auto !important;
+//     }
+// }
+
+
+//------------------
+//	!iFrame
+//------------------
+
+.media_embed{
+	@include aspect-ratio;
+}
+
+.cke_editable{
+	padding: 0 !important;
+}
+.cke.cke_panel{
+	width: auto !important;
+}

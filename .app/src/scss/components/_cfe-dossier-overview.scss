@@ -1,0 +1,206 @@
+.cfe-contracts {
+	margin-top: 6rem;
+}
+
+.dossier-overview {
+
+	.space--xl {
+		margin-bottom: 6rem;
+	}
+
+	.m-contract {
+		&.m-contract--line-orange-light .m-contract__container{
+			border-color: rgba($color-brand-light, 0.4);
+		}
+
+		&.m-contract--line-orange .m-contract__container{
+			border-color: $color-sub-light;
+		}
+
+		&.m-contract--line-blue .m-contract__container{
+			border-color: $color-accent;
+		}
+
+		&.m-contract--line-grey .m-contract__container{
+			border-color: $black-10;
+		}
+	}
+
+	.m-contract--bg-blue {
+		background-color: $color-bg-blue-light;
+
+		.m-contract__container {
+			border-top: .4rem solid;
+			padding: 1rem 2rem 2rem;
+		}
+	}
+
+	.m-contract--bg-grey {
+		background-color: $black-5;
+
+		.m-contract__container {
+			border-top: .4rem solid;
+			padding: 1rem 2rem 2rem;
+		}
+
+		~ .m-contract {
+			background-color: $black-5;
+		}
+	}
+
+	.m-contract--box {
+		padding: 1rem;
+
+		.m-contract__container {
+			background-color: $white;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			> div:last-child .m-contract-headline,
+			> .m-contract-headline:last-child { margin-bottom: 0; }
+		}
+	}
+
+	.m-contract-headline {
+		display: table;
+		width: 100%;
+		margin-bottom: 1rem;
+		padding-bottom: .5rem;
+		border-bottom: .1rem solid #a4d5de;
+
+		.m-contract-headline__title {
+			display: table-cell;
+			font-size: 2.2rem;
+			line-height: 2.8rem;
+			color: #3f3f3f;
+			margin-top: 0;
+			margin-bottom: 2rem;
+			font-family: inherit;
+			font-weight: 500;
+		}
+
+		.m-contract-headline__police {
+			display: table-cell;
+			text-align: right;
+			font-size: 1.4rem;
+			line-height: 1.8rem;
+			margin-bottom: 0;
+			.m-contract-headline__police-number { color: #787887; }
+		}
+
+		.m-contract-headline__date {
+			display: table-cell;
+			font-size: 1.4rem;
+			line-height: 1.8rem;
+			margin: 0;
+			.m-contract-headline__date-title { color: #787887; }
+			&.action { cursor: pointer; }
+		}
+
+		&--line-grey {
+			border-color: #f0f0f0;
+		}
+
+		&:last-child{
+			margin-bottom: 0;
+			&:first-child{ margin-bottom: 1rem; }
+		}
+	}
+
+	.m-contract__list-title {
+		padding-top: 2rem;
+	}
+
+	.m-contract__button-container {
+		text-align: center;
+
+		.m-calltoaction {
+			margin-top: 2rem;
+		}
+
+		.m-calltoaction__primary {
+			margin-bottom: 2rem;
+			.btn {
+				font-size: 1.8rem;
+				line-height: 2.6rem;
+				padding: 1.1rem 2rem 1.3rem;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.calc-delete, .calc-open {
+		cursor: pointer;
+		padding: 0 0.5rem;
+		color: $color-accent;
+	}
+
+	.calc-delete {
+		padding-right: 0;
+	}
+
+	.calc-open {
+		margin-right: 0.3rem;
+	}
+}
+
+.m-tracking-icons {
+	overflow: hidden;
+	max-width: 100%;
+	margin-top: 1rem;
+	margin-bottom: 0;
+	padding-top: 1rem;
+	padding-left: 0;
+
+	.m-tracking-icons__item {
+		position: relative;
+		display: table-cell;
+		vertical-align: top;
+		width: 1em;
+		list-style: none;
+		font-size: 2.3rem;
+		color: #a4d5de;
+
+		&:nth-last-of-type(n+2) {
+			padding-right: 2.2rem;
+		}
+
+		&--text {
+			width: auto;
+		}
+
+		&--active {
+			color: $color-sub-light;
+		}
+	}
+
+	.m-tracking-icons__icon {
+		display: block;
+		float: left;
+	}
+
+	.m-tracking-icons__text {
+		display: block;
+		padding-top: .3rem;
+		padding-left: 1rem;
+		overflow: hidden;
+		color: $black-55;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		width: auto;
+	}
+
+	.m-tracking-icons__arrow {
+		display: none;
+		vertical-align: .5rem;
+		font-size: 1rem;
+	}
+
+	.m-tracking-icons__item+.m-tracking-icons__item .m-tracking-icons__arrow {
+		position: absolute;
+		top: .7rem;
+		left: -1.5rem;
+		display: block;
+	}
+}

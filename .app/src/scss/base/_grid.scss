@@ -1,0 +1,27 @@
+//--- ! Breakpoints ---///
+$break-xs: 20em !default; // ±320px
+$break-sm: 30em !default; // ±480px - Bootstrap: 34em
+$break-md: 48em !default; // ±768px
+$break-lg: 62em !default; // ±992px
+$break-xl: 1020px !default; // 75em !default; ±1200px
+
+@mixin break($media) {
+	@if $media == xxs {
+		@media only screen and (max-width: $break-md){ @content; }
+	}
+	@elseif $media == xs {
+		@media only screen and (min-width: $break-xs){ @content; }
+	}
+	@else if $media == sm {
+		@media only screen and (min-width: $break-sm){ @content; }
+	}
+	@else if $media == md {
+		@media only screen and (min-width: $break-md){ @content; }
+	}
+	@else if $media == lg {
+		@media only screen and (min-width: $break-lg){ @content; }
+	}
+	@else if $media == xl {
+		@media only screen and (min-width: $break-xl){ @content; }
+	}
+}

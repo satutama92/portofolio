@@ -1,0 +1,310 @@
+//------------------
+//  !Extends
+//------------------
+
+%search-icon {
+  font-size: 3rem;
+  color: $color-sub;
+  // padding-right: 1rem;
+  float: left;
+}
+
+%search-title {
+  position: relative;
+  font-size: 2.5rem;
+}
+
+
+//------------------
+//  !Base
+//------------------
+
+.page-search-result .view-search-result {
+  padding: 6rem 0;
+
+  .view-content .views-field-view-node a {
+    display: block;
+    padding-top: 1rem;
+  }
+}
+
+.page-search-result #block-system-main .field-items { padding: 0; }
+
+
+//------------------
+//  !Filter
+//------------------
+
+.view-search-result .view-filters {
+  position: relative;
+
+  .views-widget-filter-type {
+    @extend .form-group;
+    .form-radios { @extend .radio-horizontal; }
+    .form-item { @extend .btn-radio; }
+    .form-item label { display: block; }
+  }
+
+  .views-widget-filter-combine {
+    width: 100%;
+
+    .views-widget .form-item {
+      margin-bottom: 0;
+      &::after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e003";
+        position: absolute;
+        right: 0;
+        top: 1.1rem;
+        font-size: 2.2rem;
+        color: $color-accent;
+      }
+    }
+  }
+
+  .views-exposed-widget {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .form-item.form-item-type.form-type-radio.radio {
+    position: relative;
+    border-left-width: 0;
+
+    label {
+      padding-left: 0;
+      &:before { font-size: 2.5rem !important; }
+    }
+
+    &:hover {
+      border-left-width: 0;
+    }
+
+    &:first-child {
+      display: none;
+    }
+
+    &:nth-child(2), &:nth-child(2):hover {
+      border-left-width: 0.01rem;
+    }
+
+    &:nth-child(3) label:before {
+      font-family: 'IconFontSmile';
+      content: "\e904";
+      @extend %search-icon;
+    }
+
+    &:nth-child(4) label:before {
+      font-family: 'IconFontSmile';
+      content: "\e90b";
+      @extend %search-icon;
+    }
+
+    &:nth-child(5) label:before {
+      font-family: 'IconFontSmile';
+      content: "\e913";
+      @extend %search-icon;
+    }
+  }
+}
+
+
+//------------------
+//  !Responsive filter dropdown
+//------------------
+
+@include break(xxs) {
+  .view-search-result .view-filters {
+    .views-widget-filter-type,
+    .views-widget-filter-type .form-radios {
+      display: block;
+      .form-item {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .views-widget-filter-type .form-radios {
+      height: 5rem;
+      overflow: hidden;
+      transition: height $tt $ts;
+      &.open { height: (4*4.9) + 0.1rem; }
+    }
+
+    .form-item.form-item-type.form-type-radio.radio {
+      border-left-width: 0.01rem;
+      border-bottom-width: 0;
+      text-align: left;
+
+      &:hover, &:nth-child(2):hover, &.active {
+        border-left-width: .5rem;
+        border-bottom-width: 0;
+        padding: 1.2rem .8rem 1.2rem .4rem;
+      }
+
+      &.active {
+        border-left-color: $radio-border-active;
+        border-bottom-color: $radio-border;
+      }
+
+      &:last-child, &:last-child:hover {
+        border-bottom-width: 0.01rem;
+      }
+
+      &:nth-child(2) label {
+        pointer-events: none;
+        &:after {
+          pointer-events: none;
+          position: absolute;
+          right: 2.8rem; top: 1.4rem;
+          content: '\f078';
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+
+      &:nth-child(3) label:before,
+      &:nth-child(4) label:before,
+      &:nth-child(5) label:before {
+        content: none;
+      }
+
+      label {
+        display: block;
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+
+
+//------------------
+//  !Content / results
+//------------------
+
+.view-search-result .view-content {
+  .views-row{
+    padding: 0;
+    margin: 4rem 0;
+  }
+
+  .views-field-title {
+    position: relative;
+    
+    span{
+      color: $color-accent;
+      font-size: 2.5rem;
+      line-height: 2.2rem;
+    }
+  }
+
+  .productpage .views-field-title {
+    padding-left: 4rem;
+    &::before{
+      font-family: 'IconFontSmile';
+      @extend %search-icon;
+      @include align-absolute-vertical();
+      content: "\e904";
+      position: absolute;
+      left: 0;
+    }
+    a{ @extend %search-title; }
+  }
+
+  .news .views-field-title {
+    padding-left: 4rem;
+    &::before {
+      font-family: 'IconFontSmile';
+      @extend %search-icon;
+      @include align-absolute-vertical();
+      content: "\e90b";
+      position: absolute;
+      left: 0;
+    }
+    a { @extend %search-title;}
+  }
+
+  .question .views-field-field-question{
+    padding-left: 4rem;
+    &::before{
+      font-family: 'IconFontSmile';
+      @extend %search-icon;
+      @include align-absolute-vertical();
+      content: "\e913";
+      position: absolute;
+      left: 0;
+    }
+    @extend %search-title;
+    color: $color-accent;
+    margin-bottom: 1rem;
+  }
+
+  .news .views-field.views-field-body { display: none; }
+  .question .views-field-title { display: none; }
+}
+
+
+//------------------
+//  !Pagination
+//------------------
+
+.view-search-result .pagination li {
+  padding: 0;
+
+  &.active {
+    background-color: transparent;
+    font-size: inherit;
+    span {
+      display: block;
+      height: auto;
+      padding: 0 1rem 0.5rem;
+      margin-bottom: -0.5rem;
+      background: $color-accent;
+      color: $white;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  a {
+    border: none;
+    padding: 0 5px;
+  }
+}
+
+
+//------------------
+//  !Footer searchbar
+//------------------
+
+.region-footer-1 #edit-type-wrapper {
+  display: none;
+}
+
+.region-footer-1 #edit-combine-wrapper {
+  padding: 0;
+  width: 100%;
+  .form-item{
+    position: relative;
+    &::after{
+      font-family: 'Glyphicons Halflings';
+      content: "\e003";
+      position: absolute;
+      right: 0; top: 0;
+      width: 4.5rem;
+      height: 3.6rem;
+      text-align: center;
+      font-size: 2.4rem;
+      color: $black-50;
+    }
+
+    input {
+      height: auto;
+      padding: 0 4.2rem 1.1rem 0;
+    }
+  }
+}

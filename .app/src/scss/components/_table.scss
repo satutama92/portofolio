@@ -1,0 +1,54 @@
+.table{
+	margin: 0;
+
+	table{
+		width: 100%;
+		margin: 0;
+		border: none;
+		@extend %card !optional;
+
+		tr{
+			border-bottom: solid 0.1rem $black-10;
+			transition: background 0.1s;
+			&:hover, &.active{
+				background: transparent;
+			}
+			th, td{
+				padding: 1rem 1rem 1rem 0;
+				font-size: 1.4rem;
+				line-height: 1.8rem;
+				&:last-child{ text-align: right; }
+				&:first-child{ text-align: left; }
+			}
+			th{
+				padding-top: 1.8rem;
+				font-weight: bold;
+				border: none;
+			}
+		}
+
+		table{
+			background: $color-accent;
+			color: $white;
+			margin: -0.8em auto;
+			box-shadow: none;
+			> thead > tr{ border-bottom: solid 2px $glow-60; }
+			tr{ border-bottom: solid 2px $glow-10; }
+			&:hover{ box-shadow: none; }
+			th{ color: $white; }
+		}
+
+		span.glyphicon{
+			display: inline;
+			margin-right: 0.4em;
+			color: $color-accent;
+			cursor: pointer;
+			&:last-child{ margin: 0; }
+		}
+
+		td{ border: 0; }
+		caption{ @extend %font-caption; }
+	}
+
+	+ .checkbox{ margin: 3rem 0; }
+}

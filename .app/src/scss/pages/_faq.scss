@@ -1,0 +1,20 @@
+.node-type-question {
+  .field-name-field-question .field-items {
+      padding: 2rem 0;
+      color: $color-accent;
+      font-size: 2.3rem;
+  }
+  .field-name-field-response{
+    padding-bottom: 2rem;
+  }
+  .control-label{
+    display: none;
+  }
+
+  #block-system-main {
+    padding: 6rem 0;
+    .field-items {
+      padding: 2rem 0;
+    }
+  }
+}

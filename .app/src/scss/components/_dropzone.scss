@@ -1,0 +1,46 @@
+.dropzone {
+  width: 100%;
+  padding: 4rem;
+  margin-bottom: 3.6rem;
+  text-align: center;
+  color: $color-accent;
+  border: dashed $color-accent-trans .1rem;
+
+  > div:first-child > span:first-child:before {
+    content: '\f093';
+    margin-right: 1rem;
+    font-size: 2.4rem;
+    color: $color-accent-trans;
+    @extend .fa;
+  }
+
+  .error-message {
+    color: $color-danger;
+  }
+
+  + .error-message {
+    color: $color-danger;
+    margin-top: -3.6rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color-accent-trans, 0.1);
+
+    > div:first-child > span:first-child {
+      color: $color-accent-dark;
+    }
+  }
+}
+
+.dropzone-list {
+  color: $color-accent;
+  margin-top: -2rem;
+  margin-bottom: 3.6rem;
+
+  .glyphicon.glyphicon-remove {
+    cursor: pointer;
+    margin-top: 0.6rem;
+    float: right;
+	}
+}

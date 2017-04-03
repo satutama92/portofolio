@@ -1,0 +1,27 @@
+body.page-search{
+
+  main.main-container{
+    padding-bottom: 17rem;
+    padding-top: 6rem;
+  }
+
+  h1{
+    margin-top: 0;
+  }
+
+  .control-label {
+    display:none;
+  }
+  .search-form .apachesolr-autocomplete {
+    margin-top:20px;
+  }
+
+  .search-result-wrapper h3.title a {
+    color: #e95d0f;
+    font-size: 1.5em;
+}
+ .search-result-date {
+   display:none;
+ }
+
+}

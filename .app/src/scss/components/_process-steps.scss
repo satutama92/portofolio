@@ -1,0 +1,130 @@
+h2.progress-steps.block-title{
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: $color-sub;
+  font-size: 2.6rem;
+}
+
+.process-steps-wrapper{
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 4rem;
+  @include break(md){
+    display: table;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-top: .1rem solid $black-15;
+      z-index: -1;
+      right: -9999px;  bottom: 0;  left: -9999px;
+  }
+
+  .process-steps{
+    @include break(md){ display: table-row; }
+
+    .process-steps-block{
+      position: relative;
+      vertical-align: top;
+      padding-left: 6.5%;
+      background: $color-bg-blue;
+      overflow: hidden;
+      @include break(md){
+        display: table-cell;
+        width: 33.3%;
+        padding-left: 0;
+      }
+
+      &:before, &:after{
+        content: '';
+        position: absolute; left: 50%;
+        width: 100%;
+        height: auto;
+        z-index: 5;
+        border-right: 25em solid transparent;
+        border-left: 25em solid transparent;
+        border-top: 1.2em solid;
+        transform: translate(-50%, 0);
+        @include break(md){
+          top: 50%; bottom: auto; left: auto;
+          height: 100%;
+          width: auto;
+          border-right: 0;
+          border-bottom: 15em solid transparent;
+          border-top: 15em solid transparent;
+          border-left: 2em solid;
+          transform: translate(0, -50%);
+        }
+      }
+
+      &:before{
+        top: 0;
+        border-top-color: $white;
+        @include break(md){
+          top: 50%;
+          left: -0.8em;
+          border-left-color: $white;
+          border-top-color: transparent;
+        }
+      }
+
+      &:after{
+        bottom: 0;
+        border-right-color: $white;
+        border-left-color: $white;
+        border-top-color: $color-bg-blue;
+        @include break(md){
+          right: 0;
+          bottom: auto;
+          border-left-color: $color-bg-blue;
+          border-bottom-color: $white;
+          border-top-color: $white;
+        }
+      }
+
+      .process-steps-content{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 4.7rem 1rem 5.2rem 4rem;
+        z-index: 3;
+        @include break(md){ padding: 4rem 3.2rem 4.5rem 7.5rem; }
+
+        [class^="icon-smile-"]:before, [class*=" icon-smile-"]:before{
+          position: absolute;
+          left: 0; top: 4.4rem;
+          color: $color-accent-light;
+          font-size: 2.8rem;
+          @include break(md){ left: 4rem; top: 4rem; }
+        }
+
+        p{
+          color: $color-accent;
+          font-size: 1.8rem;
+          line-height: 2.6rem;
+        }
+      }
+
+    }
+
+  }
+}
+
+.progress-button{
+  margin: 3rem auto 6rem;
+  text-align: center;
+  .a-button.btn.btn-conversion{
+    background: $color-sub;
+    color: $white;
+    border-color: $color-sub;
+    margin: 0;
+  }
+}

@@ -1,0 +1,46 @@
+.landing-page{
+  .header-stage-content{
+    h2{
+      margin-bottom: 3rem;
+    }
+  }
+
+  @include break(md){
+    h2{
+      line-height: 4rem;
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.landing-header{
+  a.logo{
+    cursor: default;
+  }
+  .region-icon-nav{
+    .startseite{
+      margin-top: 2.8em;
+      width: 150px;
+      li a {
+        padding: 10px 0;
+        &:hover{
+          background: transparent !important;
+        }
+      }
+      span{
+        font-size: 1.1rem;
+      }
+    }
+  }
+  @include break(md){
+    .region-icon-nav{
+      position: absolute;
+      right: 0;
+      display: flex;
+    }
+    .startseite{
+    text-align: right;
+    }
+  }
+
+}

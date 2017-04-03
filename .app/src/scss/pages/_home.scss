@@ -1,0 +1,148 @@
+.block-orange, .block-green{
+	color: $white;
+	position: relative;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 2em 0 4em;
+	blockquote{ margin-bottom: 0; }
+	em{ display: block; margin-top: 0.7em; }
+}
+
+section{
+	position: relative;
+}
+
+@include break(md){
+	.container, .container-fluid {
+	  max-width: 1020px;
+		width: 100%;
+	  padding-right: 3rem;
+	  padding-left: 3rem;
+	}
+}
+
+.block-orange{
+	background: $color-brand;
+}
+
+.block-green{
+	background: $color-accent;
+}
+
+@include break(md){
+	.row-flex{
+		display: flex;
+		@include cf();
+	}
+	.block-green .region section{
+		@include align-absolute-vertical();
+	}
+}
+
+.border-right{
+	border-right: solid 1px $black-10;
+}
+
+blockquote{
+	border-left: none;
+	@include break( xl ){
+		font-size: 32px;
+	}
+}
+
+
+
+
+//------------------
+//	!Portfolio
+//------------------
+
+.portfolio{
+	padding-top: 0;
+	padding-bottom: 3em;
+	.portfolio-item .card{
+		border: 1px solid $black-15;
+		margin-bottom: 1.5em;
+		img{ width: 100%; height: auto; }
+		.content{ padding: 1em; }
+		h2{ margin-top: 0; }
+	}
+}
+
+
+//------------------
+//	!Jump menu
+//------------------
+
+.block-better-jump-menu .form-group select + .select-chevron,
+.jump-menu-calculator .form-group select + .select-chevron{
+	position: relative;
+	margin-top: -5.3rem;
+	margin-right: 1rem;
+	z-index: 1;
+}
+
+.jump-menu-calculator{
+
+	.form-group.form-item-jump{
+		padding: 0;
+		margin: 0;
+		.control-label{
+			@extend .hidden;
+		}
+		select{
+			margin-bottom: 2rem;
+			padding: 1.2rem 1.2rem 1.2rem;
+			background: $white;
+			border: none;
+		}
+	}
+
+	.ctools-jump-menu-button{
+		background: $color-sub;
+		display: block;
+		margin: 0 auto 0;
+		min-width: 200px;
+		&:hover{
+			background: $color-sub-dark;
+		}
+		@include break(md){
+			margin: 0;
+		}
+	}
+}
+
+main .jump-menu-calculator{
+	display: block;
+	text-align: center;
+	padding-top: 2rem;
+	padding-bottom: 6rem;
+
+	.form-group.form-item-jump{
+		display: inline-block;
+		width: 100%;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		@include break(md){ width: 44rem; }
+
+		select{
+			width: 100%;
+			padding: 1.2rem 0;
+			line-height: 2.1rem;
+			border-bottom: 1px solid $black-60;
+			+ .select-chevron{ color: $color-accent; }
+			@include break(md){ width: 26rem; }
+		}
+		@include break(md){ float: left; width: auto; }
+	}
+
+	.ctools-jump-menu-button{
+		display: block;
+		margin: auto;
+		@include break(md){ display: inline-block; margin-left: 3rem; }
+	}
+
+	@include break(md){
+		div, form{ display: inline-block; }
+	}
+}

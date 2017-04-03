@@ -1,0 +1,135 @@
+#cfe-login-form ul.nav{
+	position: static; top: 0; left: 0;
+	width: 100%;
+	padding: 6px 0 0;
+	margin: 0;
+
+	i.glyphicon{
+		display: block;
+		font-size: 26px;
+		line-height: 1em;
+		text-align: center;
+		margin-top: 5px;
+    margin-bottom: 5px;
+	}
+
+	li.navbar-user{
+		padding: 10px 20px;
+		margin-bottom: 15px;
+		margin-top: -15px;
+		margin-right: -15px;
+		margin-left: -15px;
+		background: $color-accent;
+		i{
+			width: 1.75em;
+			height: 1.75em;
+			margin-right: 10px;
+			text-align: center;
+			line-height: 1.6em;
+			color: $color-accent;
+			background: $white;
+			border-radius: 50%;
+		}
+		span{ color: $white; }
+	}
+
+	.dropdown-menu{
+		position: absolute; left: 0; right: auto;
+    width: auto;
+		box-shadow: none;
+		border: none;
+		padding: 15px;
+		background: $white;
+		>li>a{
+			padding: 6px 0;
+			font-size: 16px;
+			color: $color-accent;
+			&:hover{ background: transparent; color: $color-accent-dark; }
+		}
+	}
+
+	>li{
+		display: inline-block;
+		width: 33%;
+		text-align: center;
+		@include break(md){ width: auto; text-align: left; }
+		>a{
+			color: $color-accent;
+			padding: 0;
+			line-height: 25px;
+			&:hover{ color: $color-accent-dark; background: transparent; }
+			@include break(md){ margin-right: 0.8em; }
+		}
+	}
+
+	>li.open>a{
+		color: $color-sub;
+		background: transparent;
+		border-bottom: 2px solid $color-sub;
+	}
+
+}
+
+.region-icon-nav{ position: relative; }
+
+.icon-nav ul.menu.nav{
+	position: static; top: 0; left: 0;
+	width: 100%;
+	padding: 6px 0 0;
+	margin: 0;
+
+	>li{
+		display: inline-block;
+		width: 33%;
+		float: left;
+		text-align: center;
+		@include break(md){ width: auto; text-align: left; }
+		>a, .cfe-account>a{
+			padding: 0;
+			color: $color-accent;
+			font-size: 16px;
+			&:hover{ color: $color-accent-dark; background: transparent; }
+			&:before{
+				position: relative;
+				top: 1px;
+				display: block;
+				font-family: 'Glyphicons Halflings';
+				font-style: normal;
+				font-weight: normal;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				font-size: 26px;
+				text-align: center;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+		}
+		&.open>a{
+			color: $color-sub;
+			background: transparent;
+			border-bottom: 2px solid $color-sub;
+		}
+		@include break(md){
+			margin-right: 0.6em;
+			&:last-child{ margin-right: 0; }
+		}
+	}
+
+	.dropdown-menu{
+		position: absolute; left: 0; right: auto;
+		width: auto;
+		box-shadow: none;
+		border: none;
+		padding: 15px;
+		background: $white;
+		border-radius: 0;
+		>li>a{
+			padding: 6px 0;
+			font-size: 16px;
+			color: $color-accent;
+			&:hover{ background: transparent; color: $color-accent-dark; }
+			&.active{ background-color: $white; color: $color-sub; }
+		}
+	}
+}

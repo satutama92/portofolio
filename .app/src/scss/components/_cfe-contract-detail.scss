@@ -1,0 +1,74 @@
+.contract-detail-list {
+	margin-top: 6rem;
+
+	.title-section {
+		margin-top: 0;
+		margin-bottom: 2rem;
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+		color: $black-80;
+		&.highlight { color: $color-sub; }
+	}
+
+	.m-contract-headline {
+    display: table;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    border-bottom: .1rem solid #a4d5de;
+	}
+
+	.m-contract-headline__title {
+    display: table-cell;
+	}
+
+	.m-contract-headline__police {
+    display: table-cell;
+    text-align: right;
+		font-size: 1.4rem;
+    line-height: 1.8rem;
+	}
+
+	.m-contract-headline__police-number {
+    color: #787887;
+	}
+
+	.space--l {
+		margin-bottom: 4rem;
+	}
+
+	.m-personal-data .m-personal-data__item {
+    margin-bottom: .5rem;
+	}
+
+	.m-personal-data__value {
+    font-weight: 700;
+		font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: $color-accent;
+		.value { font-weight: normal; }
+	}
+
+	.list-unstyled {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+		padding-left: 0;
+    list-style: none;
+		>li {
+	    margin-bottom: 0.6rem;
+		}
+	}
+
+	.lead {
+		margin-bottom: 4rem;
+		font-size: 1.8rem;
+		line-height: 2.7rem;
+	}
+
+	hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: .1rem solid #eee;
+	}
+}

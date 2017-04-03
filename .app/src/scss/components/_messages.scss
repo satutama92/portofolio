@@ -1,0 +1,52 @@
+.message, .alert{
+	background: rgba( $black-60, 0.1 );
+	padding: 2rem;
+	display: block;
+	color: $black-75;
+	margin-bottom: 2.5em;
+	font-size: 1.4rem;
+	border-width: 0 0 0.1rem 0;
+	border-style: solid;
+	border-color: $black-60;
+	border-radius: 0;
+
+	a.close{ opacity: 1; }
+
+	h2,h3{
+    font-size: 2.2rem;
+    padding-bottom: 1rem;
+  }
+
+  p{ font-size: 1.4rem; }
+
+	&.alert-block{ margin-top: 3rem; }
+
+	&.error, &.alert-danger{
+		background: rgba( $color-danger, 0.1 );
+		color: $color-danger;
+		border-bottom-color: $color-danger;
+		a.close{ color: $color-danger; }
+	}
+
+	&.warning, &.alert-warning{
+		background: rgba( $color-warning, 0.1 );
+		border-bottom-color: $color-warning;
+		a.close{ color: $color-warning; }
+	}
+
+	&.success, &.alert-success{
+		background: rgba( $color-success, 0.2 );
+		border-bottom-color: $color-success;
+		a.close{ color: $color-success; }
+	}
+}
+
+.form-group{
+	.message{ margin: 0; }
+
+	&.has-error .message{
+		background: rgba( $color-danger, 0.1 );
+		color: $color-danger;
+		border-bottom-color: $color-danger;
+	}
+}

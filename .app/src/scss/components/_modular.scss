@@ -1,0 +1,185 @@
+.block-bean{
+	width: 100%;
+}
+.modular{
+	.m-teaser .col{
+		margin-right: -30px;
+		margin-left: -30px;
+		float: none;
+	}
+	@include break(md){
+		.m-teaser{
+		    position: relative;
+		    display: table;
+		    height: 100%;
+		    width: 100%;
+		    .col{
+		    	display: table-cell;
+	    		height: 100%;
+					margin-right: 0;
+					margin-left: 0;
+					&:first-child{ padding-left: 0; }
+					&:last-child{ padding-right: 0; }
+		    }
+		}
+	}
+
+	.m-teaser__container{
+		padding: 4.8rem 2rem 6rem;
+		@include break(md){ padding: 4.8rem 0 8rem; }
+
+		.teaser-content{
+			margin-top: 3.2rem;
+			h2{ line-height: 3.2rem; margin: 0 0 3rem; }
+			p{ margin: 0; padding-bottom: 2rem; line-height: 2.6rem; }
+			a.tertiary{ line-height: 2.4rem; }
+		}
+
+		.Orange &:before{
+			background: $color-brand;
+		}
+		&:before {
+		    content: '';
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    border-top: .1rem solid $black-15;
+		    z-index: -1;
+		    @include break(md){right: -9999px;  bottom: 0;  left: -9999px;}
+		}
+	}
+
+	.m-teaser--one-column{
+		.m-teaser__container{
+				padding-top: 4.8rem;
+		    padding-bottom: 4rem;
+		    [class^="icon-smile-"], [class*=" icon-smile-"]{
+					float: right;
+					color: $color-sub;
+					font-size: 6.4rem;
+					@include break(md){ float: none; }
+				}
+		    .teaser-content{
+					margin-top: 3.2rem;
+					@include break(md){
+						display: table-cell;
+						vertical-align: top;
+					}
+			}
+		}
+		.modular-badge{
+			display: table-cell;
+			width: 23rem;
+			text-align: center;
+			float: right;
+			@include break(md){float: none;}
+			.m-teaser__figure {
+		    	float: right;
+			    overflow: hidden;
+  				padding-left: 1rem;
+    			text-align: center;
+    			width: 230px;
+    			padding-right: 30px;
+    			@include break(xs){padding: 0; float: none; max-height: 100%;}
+			    @include break(md){display: table-cell; float: none;  padding-left: 0;}
+			    img{
+				    padding-left: 1rem;
+						margin-bottom: 3em;
+						width: auto;
+						height: auto;
+						max-height: 6.4rem;
+				}
+			}
+			[class^="icon-smile-"]:before, [class*=" icon-smile-"]:before {
+
+				margin-right: 0;
+				@include break(md){
+					font-size: 9.6rem;
+					padding-right: 3rem;
+				}
+			}
+		}
+	}
+	.m-teaser--two-columns{
+		.m-teaser__container--badge img {
+    		max-height: 100%;
+		}
+		.col:last-child .m-teaser__container {
+	    	&:before{
+				@include break(md){left: 0;margin: 0 -.1rem 0 0; border-top: .1rem solid #d2d2d2;border-left: .1rem solid #d2d2d2;}
+			}
+			@include break(md){padding-left: 1em;}
+		}
+		.col:first-child .m-teaser__container {
+			&:before{
+				@include break(md){right: 0; margin: 0 -.1rem 0 0; padding-right: .1rem; border-right: .1rem solid #d2d2d2;}
+			}
+		    @include break(md){padding-right: 1em;}
+		}
+		.m-teaser__container--badge{
+			padding-top: 4.8rem;
+		    padding-bottom: 6rem;
+		    [class^="icon-smile-"], [class*=" icon-smile-"]{ float: right; color: $color-sub; font-size: 6.4rem; }
+		    .m-teaser__figure {
+		    	float: right;
+			    overflow: hidden;
+			    img{
+				    margin-bottom: 3rem;
+				    padding-left: 1rem;
+						max-height: 6.4rem;
+						width: auto;
+				}
+			}
+		}
+		.m-teaser__container--icon{
+			@extend .m-teaser__container--badge;
+			.m-teaser__figure{
+				margin-bottom: 3rem;
+		    padding-left: 1rem;
+		    max-height: 100%;
+		    float: right;
+    		height: 6.4rem;
+			}
+		}
+		.m-teaser__container--icon-transparent{
+			@extend .m-teaser__container--badge;
+		}
+		.m-teaser__container--image{
+			@extend .m-teaser__container--badge;
+		}
+	}
+
+	.m-teaser__container.Blue{
+		color: $white;
+		position: relative;
+		.m-teaser__icon-text{opacity: 0.8; margin-bottom: 1em;}
+		h2, h3, a, a:after{ color: $white; }
+		 a, a:after{ opacity:0.7; transition: opacity .3s}
+		a:hover{ opacity: 1 !important;}
+		h3{ padding-top: 15px;}
+		[class^="icon-smile-"], [class*=" icon-smile-"]{ opacity: .6; line-height: 5.2rem; font-size: 5.2rem; float: left !important; margin-right: 0.5em; color: $white;}
+		&:before{ background: $color-accent; border:0 !important; }
+		@include break(md){ position: static; }
+	}
+	.m-teaser__container.Orange{
+		@extend .Blue;
+		&:before{background: $color-brand;}
+	}
+	.m-teaser__container.Light-Green{
+		@extend .Blue;
+		&:before{background: $color-accent-light;}
+	}
+	.icon-smile-thumbs-up:before {
+    content: "\e92f";
+	}
+
+}
+
+.modular.modular-product{
+	.m-teaser__container.Blue, .m-teaser__container.Orange{
+		position: relative;
+		padding: 0 2.8rem 0;
+	}
+}

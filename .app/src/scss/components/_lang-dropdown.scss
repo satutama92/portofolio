@@ -1,0 +1,77 @@
+.language-switcher-locale-url{
+  text-align: center;
+  .language-link{
+    @include break(md){font-size: 1.2rem;}
+  }
+  li{
+    @include break(md){
+      display: none !important;
+      margin: 0;
+    }
+    display: inline !important;
+    margin: 0 1rem;
+  }
+  li.de.active,li.fr.active,li.it.active,li.en.active{
+    display: inline !important;
+    @include break(md){
+      display: block !important;
+      padding-bottom: .2rem;
+      &::after{
+        margin-left: .7rem;
+        color: $color-accent;
+        font-size: 1rem;
+        font-family: 'Glyphicons Halflings';
+        content: "\e114";
+        top: 0.1rem;
+        position: relative;
+      }
+    }
+  }
+  li.de.active.colored,li.fr.active.colored,li.it.active.colored,li.en.active.colored{
+    &::after{
+      color: $color-sub;
+    }
+  }
+  li.active + li{
+    @include break(md){
+      padding-top: .6rem;
+    };
+  }
+  .colored{
+    @include break(md){
+      border-bottom : .2rem solid #e95d0f;
+      max-width : 3rem;
+      margin-left: 2rem;
+       text-align : right;
+       a{
+         color: $color-sub;
+       }
+     }
+  }
+  .options{
+      @include break(md){
+        background:white;
+        text-align:right;
+        width:5rem;
+        padding-right:.5rem;
+        display: list-item !important;
+        &:last-child{
+          padding-bottom: .6rem;
+        }
+        a{
+          display: block;
+          padding: .6rem 0;
+          line-height: 1.2rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+}
+.block-locale.lang-selector{
+  @include break(md){
+    position: absolute;
+    top: 0;
+    right: 0.9rem;
+    float: right;
+  }
+}

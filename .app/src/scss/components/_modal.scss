@@ -1,0 +1,112 @@
+.modal-backdrop{
+	background-color: white;
+	opacity: 1;
+	&.in{ opacity: 1; }
+}
+
+.modal-open {
+	overflow: hidden;
+	height: 100vh;
+}
+
+.toolbar.toolbar-drawer .modal.fade {
+	padding-top: 6.4rem;
+}
+
+.modal.fade{
+	opacity: 1;
+
+	.modal-dialog{
+		display: table;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 1.25em 0.625em 0.625em;
+		transform: translate(0, 0);
+
+		.modal-content{
+			display: table-cell;
+			vertical-align: middle;
+			padding: 0;
+			border: none;
+			box-shadow: none;
+
+			.modal-body, .modal-header, .modal-footer{
+				width: 100%;
+				max-width: 630px;
+				margin: auto;
+			}
+
+			.modal-header{
+				position: relative;
+				background: transparent;
+				color: $black-60;
+				border: none;
+				padding-top: 0;
+				padding-bottom: 1.5em;
+				h2, h4{
+					margin-top: 0;
+					margin-bottom: 2rem;
+					font-size: 2.2rem;
+					line-height: 2.8rem;
+				}
+				h4{ color: $black-60; }
+				.close{
+					position: absolute;
+					top: 0; right: 0.5em;
+					color: $color-accent;
+					line-height: 0.7em;
+					opacity: 1;
+					font-size: 2.4rem;
+					@extend .glyphicon;
+					@extend .glyphicon-remove;
+					span{ display: none; }
+				}
+			}
+
+			.modal-body{
+				@extend %font-body;
+
+				.footer-quote + .btn.btn-primary{
+					position: absolute;
+					top: -4.2rem;
+					right: 0;
+				}
+
+			}
+
+			.modal-footer{
+				border: none;
+				text-align: center;
+			}
+
+			.btn.btn-border{
+				float: right;
+				background: $color-sub;
+				color: white;
+				&:hover{
+					background: lighten( $color-brand, 10% );
+				}
+			}
+		}
+
+		.cfe-premium{
+			color: $white;
+			background: $color-accent;
+			padding: 1em;
+			margin-top: 1em;
+			margin-left: -15px;
+			margin-right: -15px;
+			margin-bottom: -15px;
+			border-radius: 0 0 0.2em 0.2em;
+		}
+	}
+
+	form{ margin: 0; }
+
+}
+
+.modal .modal .modal-dialog {
+	height: 100vh;
+	padding: 0;
+}

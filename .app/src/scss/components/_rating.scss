@@ -1,0 +1,12 @@
+.rating-ekomi {
+  font-size: 2.2rem;
+  color: $white;
+  display: inline-block;
+  overflow: hidden;
+  top: .7rem;
+  position: relative;
+  left: 1.5rem;
+}
+.rating-ekomi::before {
+  content: "★★★★★"
+}

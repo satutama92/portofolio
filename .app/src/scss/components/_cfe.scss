@@ -1,0 +1,139 @@
+.block-cfe, .node-type-dossier{
+
+	.stepper-section{
+		display: none;
+		@include cf();
+
+		// Step header
+		h3{
+			display: none;
+			color: $black-80;
+			position: relative;
+			margin: 0 0 3rem;
+			padding: 0;
+			cursor: pointer;
+			font-size: 2rem;
+			small{
+				background: rgba( $color-danger, 0.1 );
+				padding: 2rem;
+				display: block;
+				color: $color-danger;
+				margin: 0.8em 0;
+				font-size: 1.4rem;
+				line-height: 1.8rem;
+				border-bottom: 1px solid $color-danger;
+			}
+			button{ display: none }
+			&.accordion-title{ margin: 0.2em 0 0.2em; }
+		}
+
+		// Step header: active/open
+		&.open{
+			display: block;
+			h3.accordion-title{
+				color: $color-brand;
+				opacity: 1;
+				&:before{ background: $color-brand; }
+				button{
+					&:before{ transform: translate3d(0, 0, 0) rotate(-45deg); background: $color-brand; width: 20px; }
+					&:after{ transform: translate3d(0, 0, 0) rotate(45deg); background: $color-brand; width: 20px; }
+				}
+			}
+			&:nth-child(5) .accordion-content{ padding: 0.5em 0 0 1.5em;}
+		}
+
+		// Step content
+		.accordion-content{
+			padding: 0.8em 0 0 0;
+			margin: 0;
+			min-height: 10px;
+			@include cf();
+			h4{ color: $color-accent; }
+			p{ margin-bottom: 2.5em; }
+			.btn.btn-link{
+				@extend a;
+				@extend .tertiary;
+				margin: 0.5em 0 0 0;
+				padding: 0.2em 0.1em;
+			}
+			button.btn{ margin: 2em 0; }
+			table:not([class="picker__table"]){
+				width: 100%;
+				margin: 1.5em 0 4em;
+				color: $black-60;
+				tbody tr{
+					border-bottom: 1px solid #ddd;
+					td{
+						min-height: 25px;
+						padding: 10px 0 10px 0;
+					}
+				}
+			}
+		}
+
+		// Step content: Hide last children
+		&:nth-child(5) .accordion-content{ min-height: 0; padding: 0;}
+		&:last-child .accordion-content{ min-height: 0; padding: 0; border: none; }
+	}
+
+	// Register box
+	.section-register {
+		margin-top: 4rem;
+		.stepper-nav .btn.btn-primary {
+			@extend %button-border;
+			&:hover span { color: white; }
+		}
+	}
+
+	// Step header: numbers
+	.accordion-section:nth-child(6) h3{ display: none; }
+
+}
+
+.stepper-nav{
+	display: block;
+	text-align: center;
+	.btn.btn-next{
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+//------------------
+//	!comment
+//------------------
+
+.cfe-loginbox{
+	button.btn.btn-primary{ float: right; }
+
+	+ div {
+		display: none;
+	}
+}
+
+
+//------------------
+//	!CFE Extra
+//------------------
+
+/*--- !Loading rotate ---*/
+@keyframes rotating {
+	from{ transform: rotate(0deg); }
+	to{ transform: rotate(360deg); }
+}
+
+.glyphicon.glyphicon-refresh{
+  animation: rotating 2s linear infinite;
+}
+
+
+//------------------
+//	!CFE-Dossier
+//------------------
+
+#cfe-dossier > div > div{
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}

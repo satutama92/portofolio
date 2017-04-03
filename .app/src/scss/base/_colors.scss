@@ -1,0 +1,112 @@
+//------------------
+//	!Colors
+//------------------
+
+//--- Status colors ---//
+$color-info:				  #21b0ff;
+$color-info-light:	  lighten(#21b0ff, 35%);
+$color-success:			  #49a862;
+$color-success-light:	#d5ebdb;
+$color-warning:			  #f6b13c;
+$color-warning-light:	#fefad2;
+$color-danger:			  #e91c01;
+$color-danger-light:	#ffeeeb;
+
+//--- Social media colors ---//
+$color-facebook:		rgb(59, 89, 152);
+$color-googleplus:	rgb(220, 78, 65);
+$color-instagram:		rgb(63, 114, 155);
+$color-lastfm:			rgb(213, 16, 7);
+$color-linkedin:		rgb(0, 119, 181);
+$color-pinterest:		rgb(189, 8, 28);
+$color-twitch:			rgb(100, 65, 165);
+$color-twitter:			rgb(85, 172, 238);
+$color-vimeo:				rgb(26, 183, 234);
+$color-vine:				rgb(0, 164, 120);
+$color-youtube:			rgb(205, 32, 31);
+
+//--- Black and white (Solid and transparant) ---//
+$white:			rgb(255, 255, 255);
+$black:			rgb(0, 0, 0);
+$black-95:	darken( $white, 95% );
+$black-90:	darken( $white, 90% );
+$black-85:	darken( $white, 85% );
+$black-80:	darken( $white, 80% );
+$black-75:	darken( $white, 75% );
+$black-70:	darken( $white, 70% );
+$black-65:	darken( $white, 65% );
+$black-60:	darken( $white, 60% );
+$black-55:	darken( $white, 55% );
+$black-50:	darken( $white, 50% );
+$black-45:	darken( $white, 45% );
+$black-40:	darken( $white, 40% );
+$black-35:	darken( $white, 35% );
+$black-30:	darken( $white, 30% );
+$black-25:	darken( $white, 25% );
+$black-20:	darken( $white, 20% );
+$black-15:	darken( $white, 15% );
+$black-10:	darken( $white, 10% );
+$black-5:		darken( $white, 5% );
+
+$shadow-95:	rgba( $black, 0.95 );
+$shadow-90:	rgba( $black, 0.9 );
+$shadow-85:	rgba( $black, 0.85 );
+$shadow-80:	rgba( $black, 0.8 );
+$shadow-75:	rgba( $black, 0.75 );
+$shadow-70:	rgba( $black, 0.7 );
+$shadow-65:	rgba( $black, 0.65 );
+$shadow-60:	rgba( $black, 0.6 );
+$shadow-55:	rgba( $black, 0.55 );
+$shadow-50:	rgba( $black, 0.5 );
+$shadow-45:	rgba( $black, 0.45 );
+$shadow-40:	rgba( $black, 0.4 );
+$shadow-35:	rgba( $black, 0.35 );
+$shadow-30:	rgba( $black, 0.3 );
+$shadow-25:	rgba( $black, 0.25 );
+$shadow-20:	rgba( $black, 0.2 );
+$shadow-15:	rgba( $black, 0.15 );
+$shadow-10:	rgba( $black, 0.1 );
+$shadow-5:	rgba( $black, 0.05 );
+
+$glow-95:		rgba( $white, 0.95 );
+$glow-90:		rgba( $white, 0.9 );
+$glow-85:		rgba( $white, 0.85 );
+$glow-80:		rgba( $white, 0.8 );
+$glow-75:		rgba( $white, 0.75 );
+$glow-70:		rgba( $white, 0.7 );
+$glow-65:		rgba( $white, 0.65 );
+$glow-60:		rgba( $white, 0.6 );
+$glow-55:		rgba( $white, 0.55 );
+$glow-50:		rgba( $white, 0.5 );
+$glow-45:		rgba( $white, 0.45 );
+$glow-40:		rgba( $white, 0.4 );
+$glow-35:		rgba( $white, 0.35 );
+$glow-30:		rgba( $white, 0.3 );
+$glow-25:		rgba( $white, 0.25 );
+$glow-20:		rgba( $white, 0.2 );
+$glow-15:		rgba( $white, 0.15 );
+$glow-10:		rgba( $white, 0.1 );
+$glow-5:		rgba( $white, 0.05 );
+
+//--- Array: All colors ---//
+$colors: (
+	"primary":	$color-brand,
+	"sub":			$color-sub,
+	"accent":		$color-accent,
+	"info":			$color-info,
+	"success":	$color-success,
+	"warning":	$color-warning,
+	"danger":		$color-danger,
+	"facebook":	$color-facebook,
+	"google":		$color-googleplus,
+	"instagram":$color-instagram,
+	"lastfm":		$color-lastfm,
+	"linkedin":	$color-linkedin,
+	"pinterest":$color-pinterest,
+	"twitch":		$color-twitch,
+	"twitter":	$color-twitter,
+	"vimeo":		$color-vimeo,
+	"vine":			$color-vine,
+	"youtube":	$color-youtube,
+	"black":		$black,
+);

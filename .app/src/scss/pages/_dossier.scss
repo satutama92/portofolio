@@ -1,0 +1,35 @@
+body.node-type-dossier{
+
+	main.main-container{
+    max-width: 630px;
+		padding-bottom: 3rem;
+		padding-top: 3rem;
+  }
+
+	.banner {
+		overflow: hidden;
+
+		#block-system-main p, p {
+			font-size: 1.8rem;
+			line-height: 2.6rem;
+			margin: 0 0 1.2rem;
+			&:last-child { margin-bottom: 0; }
+		}
+
+		h1 {
+			color: $color-sub;
+			margin-top: 0;
+			margin-bottom: 3rem;
+		}
+	}
+
+	.banner--blue, .banner--grey, .banner--white {
+		padding: 4rem 0;
+	}
+
+	.banner--grey {
+		background: $black-5;
+	}
+
+	#block-system-main .field-items { padding: 0; }
+}

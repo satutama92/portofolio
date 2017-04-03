@@ -1,0 +1,74 @@
+#cfe-dossier-customer-details {
+
+	.btn.next {
+		float: right;
+	}
+
+	.btn.edit, .btn.next {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+
+}
+
+//------------------
+//  !Form styling
+//------------------
+
+.form-group {
+
+	&.spacer {
+		margin-bottom: 4rem;
+	}
+
+	&.no-padding {
+		margin-bottom: 1rem;
+	}
+
+	&.datepicker {
+		clear: both;
+	}
+
+	&.streetname, &.housenumber-suffix,
+ 	&.zipcode, &.housenumber {
+		margin-bottom: 0;
+	}
+
+	@include break(md) {
+		&.streetname, &.housenumber-suffix,
+		&.city, &.zipcode, &.housenumber {
+			display: inline-block;
+
+			&.has-error {
+				margin-bottom: 2.2rem;
+					span.help-block {
+					position: absolute;
+					bottom: -3rem;
+				}
+			}
+		}
+
+		&.streetname {
+			width: 63%;
+		}
+
+		&.housenumber {
+			width: 22%;
+			input { text-align: right; }
+		}
+
+		&.housenumber-suffix {
+			width: 15%;
+		}
+
+		&.zipcode {
+			width: 30%;
+			margin-bottom: 3.6rem;
+		}
+
+		&.city {
+			width: 70%;
+		}
+	}
+
+}

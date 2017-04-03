@@ -1,0 +1,103 @@
+footer.footer{
+	padding-bottom: 0;
+	margin-top: 0;
+	border: none;
+	padding-top: 0;
+}
+
+.footer-top{
+	padding-top: 1.3rem;
+	border-top: .1rem solid $black-15;
+
+	.back-to-top{
+		@extend .col-xs-6;
+		clear: none;
+		.to-top{
+			display: inline-block;
+			margin-top: 0;
+			font-size: 1.4rem;
+			line-height: 1.8rem;
+			color: $black-50;
+			padding: 2.1rem 0 .7rem;
+			&:active, &:focus{ text-decoration: none; }
+			span{
+				font-size: 1.8rem;
+				margin-right: 0.5rem;
+				white-space: nowrap;
+				color: transparent;
+				&:before{ color: $black-50; }
+			}
+		}
+	}
+}
+
+.footer-top .block-menu{
+	@extend .col-xs-6;
+	clear: none;
+	.menu.nav{
+		display: inline-block;
+		float: right;
+		li{
+			position: relative;
+			float: left;
+			a, a:hover, a:focus,
+			a:active, a:visited{
+				padding: 1rem .8rem;
+				margin-top: .6rem;
+				color: transparent;
+				background: transparent;
+				font-size: 0;
+				line-height: 0;
+				&:before{
+					font-size: 3.2rem;
+					line-height: 3rem;
+					color: $black-50;
+					@include font-smoothing();
+				}
+			}
+		}
+	}
+}
+
+.footer-bottom{
+	padding: 1.4em 0;
+	background: $black-5;
+
+	section{
+		text-align: left;
+		h2.block-title{
+			cursor: auto;
+			margin-top: 0;
+			margin-bottom: 2rem;
+			font-weight: 500;
+			font-size: 1.8rem;
+			line-height: 2.4rem;
+		}
+		ul li{
+			margin-bottom: .9rem;
+    	line-height: 1.5rem;
+			padding: 0;
+			a{
+				font-size: 1.2rem;
+				line-height: 1.5rem;
+				padding: 0;
+				color: $black-75;
+				&:hover{ text-decoration: underline; }
+				&:hover, &:focus, &:active{ background: transparent; }
+			}
+		}
+		&.block-search .element-invisible{ display: none; }
+	}
+
+	.container .col-sm-2{
+		margin-bottom: 1.5rem;
+    padding-right: 0;
+    padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		&.pull-right-rwd{
+			@include break(md){
+				float: right;
+			}
+		}
+	}
+}
